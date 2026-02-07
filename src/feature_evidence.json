@@ -1,0 +1,23 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-search-the-entire-frontend-project-for-any-existing-email-address-text-including-but-not-limited-to-the-contact-page-footer-and-about-page-and-replace-every-occurrence-with-exactly-sankalphubsolutions-gmail-com-only-update-the-email-text-itself-do-not-change-any-layout-styling-component-structure-routes-tools-calculators-or-page-content-beyond-the-email-strings",
+      "featureTitle": "Search the entire frontend project for any existing email address text (including, but not limited to, the Contact page, Footer, and About page) and replace every occurrence with exactly: SankalpHubsolutions@gmail.com. Only update the email text itself; do not change any layout, styling, component structure, routes, tools, calculators, or page content beyond the email strings.",
+      "files": [
+        "frontend/src/pages/ContactPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-35"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

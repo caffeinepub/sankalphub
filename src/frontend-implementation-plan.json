@@ -1,0 +1,23 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Replace all contact email addresses site-wide with SankalpHubsolutions@gmail.com",
+  "requirements": [
+    {
+      "id": "REQ-35",
+      "summary": "Replace every UI-displayed email address in the frontend codebase with exactly SankalpHubsolutions@gmail.com, without changing any other content or layout.",
+      "acceptanceCriteria": [
+        "All email addresses displayed anywhere in the UI are exactly \"SankalpHubsolutions@gmail.com\".",
+        "No other email-like strings remain in the codebase UI content (e.g., previous addresses such as \"contact@sankalphub.com\" or \"business@sankalphub.com\" are fully removed/replaced).",
+        "No non-email text, layout, styling, navigation, tools, or calculator functionality is changed as part of this update."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Replace the existing email strings \"contact@sankalphub.com\" and \"business@sankalphub.com\" with exactly \"SankalpHubsolutions@gmail.com\". Do not change any surrounding text, layout, styling, component structure, or behavior—only the email address text."
+        }
+      ]
+    }
+  ]
+}

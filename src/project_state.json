@@ -1,0 +1,409 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 13,
+  "summary": "Expand SankalpHub while preserving the existing homepage layout and all current tools/pages: add an All-in-One Calculators section (including new calculators like Loan, BMI, SIP/Investment) and remove non-SankalpHub footer branding (“Build with us caffeine”) and any visible blank ad placeholder banner (“Advertisement Space”).",
+  "architectural_notes": [
+    "Tools should support end-to-end flow: upload/input → processing with loading indicator → downloadable output/result.",
+    "Site must be SEO-friendly with proper semantic headings and structure.",
+    "Strict brand compliance: “SankalpHub” name everywhere; do not display any AI/caffeine branding; do not include WhatsApp/Telegram/Contact sections.",
+    "Functional update only: do NOT change existing design or layout.",
+    "All tool pages must be functional end-to-end: required inputs, action button triggers logic, result output box, and download button when a file is generated.",
+    "Implement tool logic client-side; if real processing is limited, show demo/sample results instead of leaving pages non-functional.",
+    "Potential scope change: user requests About/Contact links/pages; this conflicts with prior constraint to avoid Contact sections—needs resolution before implementation.",
+    "Do not display any blank/empty ad placeholders; if ad slots exist, they must not be visible when no ad is served.",
+    "Do not delete existing tools or pages; only add calculators and remove unwanted branding/placeholders while preserving the current homepage layout.",
+    "For the Contact email update task: search the entire project for any email addresses shown in Contact/Footer/About and replace only the email text with SankalpHubsolutions@gmail.com; do not change layout, design, tools, or calculators."
+  ],
+  "known_issues": [
+    "Deployment/build failed; user requested to retry deployment.",
+    "Current tool buttons are not working / actions not triggering; some tool pages effectively empty and need functional flows.",
+    "Requirements conflict: prior spec forbids Contact sections/links, but latest request asks for About/Contact in navbar and Contact in footer.",
+    "Footer currently contains non-compliant branding text: “Build with us caffeine”.",
+    "A visible empty top ad placeholder/banner (“Advertisement Space”) is shown; user requires removing/hiding all blank ad sections."
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-create-the-sankalphub-site-shell-with-a-premium-global-tools-website-look-similar-to-ilovepdf-smallpdf-responsive-layout-top-navbar-consistent-typography-rounded-cards-with-soft-shadows-and-a-clean-gradient-background-blue-purple-or-dark-blue-cyan-with-a-light-professional-page-background-not-plain-white",
+      "title": "Create the SankalpHub site shell with a premium, global tools-website look (similar to ilovepdf/smallpdf): responsive layout, top navbar, consistent typography, rounded cards with soft shadows, and a clean gradient background (blue→purple or dark blue→cyan) with a light professional page background (not plain white).",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-homepage-layout-top-navbar-with-sankalphub-logo-hero-section-with-headline-sankalphub-free-online-tools-for-everyone-and-a-modern-card-grid-showing-the-available-tools-with-icons",
+      "title": "Implement the homepage layout: top navbar with SankalpHub logo, hero section with headline “SankalpHub – Free Online Tools for Everyone”, and a modern card grid showing the available tools with icons.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-site-navigation-with-the-exact-menu-structure-home-all-tools-pdf-tools-image-tools-calculators-and-ensure-there-are-no-whatsapp-telegram-or-contact-sections-links-anywhere",
+      "title": "Add site navigation with the exact menu structure: Home | All Tools | PDF Tools | Image Tools | Calculators, and ensure there are no WhatsApp, Telegram, or Contact sections/links anywhere.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-strict-sankalphub-branding-across-the-entire-ui-brand-name-displayed-as-sankalphub-exact-casing-and-no-other-product-ai-branding-visible-anywhere",
+      "title": "Apply strict SankalpHub branding across the entire UI: brand name displayed as “SankalpHub” (exact casing) and no other product/AI branding visible anywhere.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-all-tools-pdf-tools-image-tools-and-calculators-index-pages-that-list-tools-as-cards-with-icons-and-allow-users-to-navigate-to-each-tool",
+      "title": "Implement the All Tools, PDF Tools, Image Tools, and Calculators index pages that list tools as cards (with icons) and allow users to navigate to each tool.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-working-pdf-tools-with-an-upload-processing-loading-animation-download-flow-jpg-to-pdf-converter-accept-one-or-more-jpg-jpeg-images-output-a-pdf-pdf-merge-accept-multiple-pdfs-output-a-single-merged-pdf-pdf-split-accept-a-pdf-allow-splitting-by-page-range-s-and-download-the-result-s",
+      "title": "Build working PDF tools with an upload → processing (loading animation) → download flow:\n- JPG to PDF Converter (accept one or more JPG/JPEG images; output a PDF)\n- PDF Merge (accept multiple PDFs; output a single merged PDF)\n- PDF Split (accept a PDF; allow splitting by page range(s) and download the result(s))",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-working-image-tools-with-an-upload-processing-loading-animation-download-flow-image-compressor-reduce-kb-size-user-can-choose-a-target-quality-level-image-resizer-user-selects-width-height-or-percentage-preserves-aspect-ratio-option-output-resized-image",
+      "title": "Build working image tools with an upload → processing (loading animation) → download flow:\n- Image Compressor (reduce KB size; user can choose a target quality/level)\n- Image Resizer (user selects width/height or percentage; preserves aspect ratio option; output resized image)",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-calculator-tools-with-clean-input-ux-validation-and-english-results-age-calculator-emi-calculator-gst-calculator-percentage-calculator-unit-converter",
+      "title": "Implement calculator tools with clean input UX, validation, and English results:\n- Age Calculator\n- EMI Calculator\n- GST Calculator\n- Percentage Calculator\n- Unit Converter",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-shared-processing-loading-animation-component-used-consistently-across-all-file-processing-tools-pdf-and-image-including-disabled-action-buttons-while-processing",
+      "title": "Add a shared processing/loading animation component used consistently across all file-processing tools (PDF and image), including disabled action buttons while processing.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-make-the-site-seo-friendly-with-semantic-structure-use-descriptive-page-titles-h1-h2-headings-and-accessible-form-labels-for-all-tools-and-pages",
+      "title": "Make the site SEO-friendly with semantic structure: use descriptive page titles, H1/H2 headings, and accessible form labels for all tools and pages.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-generated-sankalphub-brand-images-as-static-assets-under-frontend-public-assets-generated-and-use-them-in-the-ui-navbar-logo-and-favicon",
+      "title": "Add the generated SankalpHub brand images as static assets under frontend/public/assets/generated and use them in the UI (navbar logo and favicon).",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-retry-the-project-build-deployment-and-ensure-it-completes-successfully",
+      "title": "Retry the project build/deployment and ensure it completes successfully.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-if-the-retry-fails-capture-the-full-build-deployment-error-output-and-fix-the-underlying-cause-so-subsequent-deployments-succeed",
+      "title": "If the retry fails, capture the full build/deployment error output and fix the underlying cause so subsequent deployments succeed.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-site-navigation-so-that-home-all-tools-pdf-tools-image-tools-calculators-and-each-tool-card-link-navigates-to-a-real-page-no-links-with-no-empty-pages",
+      "title": "Fix site navigation so that Home | All Tools | PDF Tools | Image Tools | Calculators and each tool card/link navigates to a real page (no “#” links), with no empty pages.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-every-tool-page-includes-1-the-correct-input-type-file-upload-for-pdf-image-tools-text-number-inputs-for-calculators-2-an-action-button-convert-calculate-process-that-triggers-processing-3-a-visible-result-output-box-showing-the-outcome-4-a-download-button-when-a-file-output-is-generated-and-5-a-loading-animation-state-while-processing-that-disables-the-action-button",
+      "title": "Ensure every tool page includes: (1) the correct input type (file upload for PDF/Image tools; text/number inputs for calculators), (2) an action button (Convert/Calculate/Process) that triggers processing, (3) a visible result output box showing the outcome, (4) a download button when a file output is generated, and (5) a loading animation/state while processing that disables the action button.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-client-side-functionality-for-pdf-tools-jpg-to-pdf-pdf-merge-and-pdf-split-including-upload-processing-loading-downloadable-output-flow",
+      "title": "Implement client-side functionality for PDF Tools: JPG to PDF, PDF Merge, and PDF Split, including upload → processing (loading) → downloadable output flow.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-client-side-functionality-for-image-tools-image-compressor-image-resizer-and-jpg-to-png-including-upload-processing-loading-downloadable-output-flow",
+      "title": "Implement client-side functionality for Image Tools: Image Compressor, Image Resizer, and JPG to PNG, including upload → processing (loading) → downloadable output flow.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-functional-calculator-tools-with-working-calculate-buttons-and-english-outputs-age-calculator-gst-calculator-emi-calculator-percentage-calculator",
+      "title": "Implement functional calculator tools with working Calculate buttons and English outputs: Age Calculator, GST Calculator, EMI Calculator, Percentage Calculator.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-maintain-the-existing-design-and-layout-while-implementing-functionality-do-not-redesign-pages-keep-strict-sankalphub-branding-and-remove-any-non-sankalphub-branding-visible-in-the-ui-including-third-party-ai-branding-links-text",
+      "title": "Maintain the existing design and layout while implementing functionality; do not redesign pages. Keep strict SankalpHub branding and remove any non-SankalpHub branding visible in the UI (including third-party/AI branding links/text).",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-global-navbar-to-match-the-requested-menu-labels-and-destinations-logo-home-pdf-tools-image-tools-about-contact-while-keeping-the-existing-single-page-app-navigation-behavior-pushstate-popstate-intact",
+      "title": "Update the global navbar to match the requested menu labels and destinations: Logo | Home | PDF Tools | Image Tools | About | Contact, while keeping the existing single-page-app navigation behavior (pushState/popstate) intact.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-home-page-hero-section-to-use-the-requested-headline-subheading-text-and-include-a-primary-cta-button-labeled-explore-tools-that-navigates-to-the-tools-listing-use-the-existing-all-tools-page",
+      "title": "Update the Home page hero section to use the requested headline/subheading text and include a primary CTA button labeled “Explore Tools” that navigates to the tools listing (use the existing All Tools page).",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-adsense-ready-layout-placeholders-1-an-empty-ad-banner-space-directly-below-the-header-on-all-pages-and-2-an-additional-ad-placeholder-between-tool-sections-on-the-home-page-or-between-major-content-sections-if-tool-sections-are-not-grouped",
+      "title": "Add AdSense-ready layout placeholders: (1) an empty ad banner space directly below the header on all pages, and (2) an additional ad placeholder between tool sections on the Home page (or between major content sections if tool sections are not grouped).",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-informational-pages-and-footer-links-about-privacy-policy-terms-and-contact-the-footer-must-include-these-links-and-navigate-to-real-pages-with-english-content-placeholders",
+      "title": "Implement informational pages and footer links: About, Privacy Policy, Terms, and Contact. The footer must include these links and navigate to real pages with English content placeholders.",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-requested-additional-pdf-tool-pages-with-the-standard-upload-processing-ui-result-download-flow-consistent-with-the-existing-toolshell-pattern-merge-pdf-already-exists-split-pdf-already-exists-compress-pdf-new-pdf-to-image-new-and-image-to-pdf-map-to-the-existing-jpg-to-pdf-behavior-but-expose-it-as-image-to-pdf-in-the-ui",
+      "title": "Add the requested additional PDF tool pages with the standard upload → processing UI → result → download flow, consistent with the existing ToolShell pattern: Merge PDF (already exists), Split PDF (already exists), Compress PDF (new), PDF to Image (new), and Image to PDF (map to the existing JPG-to-PDF behavior, but expose it as “Image to PDF” in the UI).",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-requested-additional-image-tool-pages-with-the-standard-upload-processing-ui-result-download-flow-compress-image-already-exists-as-image-compressor-resize-image-already-exists-jpg-to-png-already-exists-png-to-jpg-new-and-image-converter-new-supporting-at-least-common-formats-already-handled-by-existing-client-side-image-conversion-utilities",
+      "title": "Add the requested additional Image tool pages with the standard upload → processing UI → result → download flow: Compress Image (already exists as Image Compressor), Resize Image (already exists), JPG to PNG (already exists), PNG to JPG (new), and Image Converter (new, supporting at least common formats already handled by existing client-side image conversion utilities).",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-all-tools-page-to-include-cards-for-all-tools-requested-in-this-message-pdf-tools-image-tools-and-ensure-every-card-navigates-to-a-real-working-tool-page",
+      "title": "Update the All Tools page to include cards for all tools requested in this message (PDF tools + Image tools), and ensure every card navigates to a real, working tool page.",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-design-matches-the-requested-premium-style-while-preserving-the-existing-overall-site-shell-clean-professional-ui-dark-blue-purple-hero-gradient-smooth-hover-effects-soft-shadows-rounded-cards-modern-fonts-mobile-responsiveness-and-lightweight-fast-loading-interactions",
+      "title": "Ensure the design matches the requested premium style while preserving the existing overall site shell: clean professional UI, dark blue→purple hero gradient, smooth hover effects, soft shadows, rounded cards, modern fonts, mobile responsiveness, and lightweight/fast-loading interactions.",
+      "reqIds": [
+        "REQ-27"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-all-in-one-calculators-section-to-the-existing-sankalphub-spa-without-deleting-any-existing-tools-pages-by-implementing-a-dedicated-calculators-index-page-that-lists-the-required-calculators-as-clickable-cards-and-navigates-to-real-calculator-pages",
+      "title": "Add an “All-in-One Calculators” section to the existing SankalpHub SPA without deleting any existing tools/pages, by implementing a dedicated Calculators index page that lists the required calculators as clickable cards and navigates to real calculator pages.",
+      "reqIds": [
+        "REQ-28"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-working-calculator-tool-pages-for-emi-loan-age-bmi-gst-percentage-and-sip-investment-using-the-existing-sankalphub-ui-patterns-clean-inputs-validation-calculate-action-and-an-english-results-panel",
+      "title": "Implement working calculator tool pages for EMI, Loan, Age, BMI, GST, Percentage, and SIP/Investment using the existing SankalpHub UI patterns (clean inputs, validation, calculate action, and an English results panel).",
+      "reqIds": [
+        "REQ-29"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-spa-routing-and-navigation-to-include-the-calculators-section-while-preserving-existing-navigation-behavior-and-not-breaking-the-homepage-layout",
+      "title": "Update SPA routing and navigation to include the Calculators section while preserving existing navigation behavior and not breaking the homepage layout.",
+      "reqIds": [
+        "REQ-30"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-all-tools-page-to-include-the-new-calculators-in-the-tools-grid-in-addition-to-the-existing-pdf-and-image-tools-ensuring-every-calculator-card-navigates-to-a-working-calculator-page",
+      "title": "Update the All Tools page to include the new calculators in the tools grid (in addition to the existing PDF and image tools), ensuring every calculator card navigates to a working calculator page.",
+      "reqIds": [
+        "REQ-31"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-footer-text-and-any-link-icon-branding-related-to-caffeine-permanently-so-that-only-sankalphub-branding-remains-in-the-ui",
+      "title": "Remove the footer text and any link/icon branding related to caffeine permanently so that only SankalpHub branding remains in the UI.",
+      "reqIds": [
+        "REQ-32"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-hide-the-top-empty-advertisement-banner-and-any-visible-blank-ad-placeholder-sections-so-that-no-advertisement-space-ui-is-shown-anywhere",
+      "title": "Remove/hide the top empty advertisement banner and any visible blank ad placeholder sections so that no “Advertisement Space” UI is shown anywhere.",
+      "reqIds": [
+        "REQ-33"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-keep-the-existing-sankalphub-premium-ui-style-and-homepage-structure-while-adding-calculators-and-removing-caffeine-ad-placeholders-no-redesign-maintaining-clean-modern-cards-and-the-current-gradient-background-styling",
+      "title": "Keep the existing SankalpHub premium UI style and homepage structure while adding calculators and removing caffeine/ad placeholders (no redesign), maintaining clean modern cards and the current gradient background styling.",
+      "reqIds": [
+        "REQ-34"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-search-the-entire-frontend-project-for-any-existing-email-address-text-including-but-not-limited-to-the-contact-page-footer-and-about-page-and-replace-every-occurrence-with-exactly-sankalphubsolutions-gmail-com-only-update-the-email-text-itself-do-not-change-any-layout-styling-component-structure-routes-tools-calculators-or-page-content-beyond-the-email-strings",
+      "title": "Search the entire frontend project for any existing email address text (including, but not limited to, the Contact page, Footer, and About page) and replace every occurrence with exactly: SankalpHubsolutions@gmail.com. Only update the email text itself; do not change any layout, styling, component structure, routes, tools, calculators, or page content beyond the email strings.",
+      "reqIds": [
+        "REQ-35"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create SankalpHub premium homepage UI (navbar, hero, tool card grid) with modern gradient/global tools-site styling and full mobile responsiveness",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Generate modern minimal tech-style text logo “SankalpHub” and apply consistent SankalpHub branding site-wide (no AI branding)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Implement navigation structure: Home | All Tools | PDF Tools | Image Tools | Calculators (no contact/WhatsApp/Telegram sections)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Implement PDF tools: JPG to PDF, PDF Merge, PDF Split with upload → processing (loading animation) → download",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Implement image tools: Image Compressor (reduce KB) and Image Resizer with upload → processing (loading animation) → download",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Implement calculator tools: Age, EMI, GST, Percentage, Unit Converter",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Ensure fast loading performance and SEO-friendly headings/structure across pages",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Add Image Tool: JPG to PNG converter with upload → processing (loading animation) → download flow (client-side)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Functional update: make all tool pages real-working (buttons trigger actions, no empty pages) with inputs, result output box, download button where applicable, and shared loading animation; use demo results where real processing is limited",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Add informational pages/links structure: Footer links for About, Privacy Policy, Terms, and Contact (and optionally nav links)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Add more PDF tools beyond current set: Compress PDF and PDF to Image with upload → processing UI → downloadable output flow",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Add more image tools beyond current set: PNG to JPG and a general Image Converter with upload → processing UI → downloadable output flow",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Add a complete All-in-One Calculators section including EMI, Loan, Age, BMI, GST, Percentage, and SIP/Investment calculators (without deleting existing tools/pages or breaking homepage layout)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Remove the footer text “Build with us caffeine” permanently and ensure only SankalpHub branding is shown site-wide",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Remove/hide the top empty banner showing “Advertisement Space” and ensure no blank ad placeholder sections are visible anywhere",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Update Contact-related email address everywhere it appears (Contact page/Footer/About) by replacing any existing email with SankalpHubsolutions@gmail.com, without changing layout/design/tools",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "SankalpHub",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
