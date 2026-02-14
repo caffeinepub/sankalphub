@@ -1,5 +1,6 @@
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { FilePlus, Scissors, Minimize2, FileImage, ImagePlus, Maximize2, FileImage as FileImageIcon, Image as ImageIcon, RefreshCw, Calculator, Calendar, Activity, Percent, TrendingUp, DollarSign } from 'lucide-react';
+import { Link } from '@tanstack/react-router';
 import { ROUTES } from '../routes';
 
 interface Tool {
@@ -10,16 +11,16 @@ interface Tool {
   route: string;
 }
 
-export function AllToolsPage({ onNavigate }: { onNavigate: (path: string) => void }) {
+export function AllToolsPage() {
   const tools: Tool[] = [
     // PDF Tools
     { title: 'Merge PDF', description: 'Combine multiple PDFs', icon: FilePlus, color: 'text-blue-500', route: ROUTES.PDF_MERGE },
     { title: 'Split PDF', description: 'Split PDF by pages', icon: Scissors, color: 'text-purple-500', route: ROUTES.PDF_SPLIT },
     { title: 'Compress PDF', description: 'Reduce PDF file size', icon: Minimize2, color: 'text-green-500', route: ROUTES.COMPRESS_PDF },
     { title: 'PDF to Image', description: 'Convert PDF to images', icon: FileImage, color: 'text-orange-500', route: ROUTES.PDF_TO_IMAGE },
-    { title: 'Image to PDF', description: 'Convert images to PDF', icon: ImagePlus, color: 'text-pink-500', route: ROUTES.IMAGE_TO_PDF },
+    { title: 'JPG to PDF', description: 'Convert images to PDF', icon: ImagePlus, color: 'text-pink-500', route: ROUTES.IMAGE_TO_PDF },
     // Image Tools
-    { title: 'Compress Image', description: 'Reduce image file size', icon: Minimize2, color: 'text-green-500', route: ROUTES.IMAGE_COMPRESSOR },
+    { title: 'Image Compressor', description: 'Reduce image file size', icon: Minimize2, color: 'text-green-500', route: ROUTES.IMAGE_COMPRESSOR },
     { title: 'Resize Image', description: 'Resize images', icon: Maximize2, color: 'text-blue-500', route: ROUTES.IMAGE_RESIZER },
     { title: 'JPG to PNG', description: 'Convert JPG to PNG', icon: FileImageIcon, color: 'text-purple-500', route: ROUTES.JPG_TO_PNG },
     { title: 'PNG to JPG', description: 'Convert PNG to JPG', icon: ImageIcon, color: 'text-orange-500', route: ROUTES.PNG_TO_JPG },
@@ -45,19 +46,17 @@ export function AllToolsPage({ onNavigate }: { onNavigate: (path: string) => voi
         {tools.map((tool) => {
           const Icon = tool.icon;
           return (
-            <Card
-              key={tool.title}
-              className="hover:shadow-xl transition-all duration-300 cursor-pointer hover:-translate-y-2 border-2 group"
-              onClick={() => onNavigate(tool.route)}
-            >
-              <CardHeader>
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                  <Icon className={`w-7 h-7 ${tool.color}`} />
-                </div>
-                <CardTitle className="text-xl">{tool.title}</CardTitle>
-                <CardDescription>{tool.description}</CardDescription>
-              </CardHeader>
-            </Card>
+            <Link key={tool.title} to={tool.route}>
+              <Card className="hover:shadow-xl transition-all duration-300 cursor-pointer hover:-translate-y-2 border-2 group h-full">
+                <CardHeader>
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className={`w-7 h-7 ${tool.color}`} />
+                  </div>
+                  <CardTitle className="text-xl">{tool.title}</CardTitle>
+                  <CardDescription>{tool.description}</CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
           );
         })}
       </div>

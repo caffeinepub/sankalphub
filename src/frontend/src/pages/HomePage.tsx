@@ -1,13 +1,10 @@
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { FileText, Image, Calculator, Zap, Shield, Sparkles } from 'lucide-react';
+import { Link } from '@tanstack/react-router';
 import { ROUTES } from '../routes';
 
-interface HomePageProps {
-  onNavigate: (path: string) => void;
-}
-
-export function HomePage({ onNavigate }: HomePageProps) {
+export function HomePage() {
   const toolCategories = [
     {
       title: 'PDF Tools',
@@ -55,10 +52,10 @@ export function HomePage({ onNavigate }: HomePageProps) {
           </p>
           <Button 
             size="lg" 
-            onClick={() => onNavigate(ROUTES.ALL_TOOLS)}
+            asChild
             className="bg-white text-blue-900 hover:bg-blue-50 font-semibold px-8 py-6 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
           >
-            Explore Tools
+            <Link to={ROUTES.ALL_TOOLS}>Explore Tools</Link>
           </Button>
         </div>
       </section>
@@ -68,19 +65,17 @@ export function HomePage({ onNavigate }: HomePageProps) {
         {toolCategories.map((category) => {
           const Icon = category.icon;
           return (
-            <Card
-              key={category.title}
-              className="hover:shadow-xl transition-all duration-300 cursor-pointer hover:-translate-y-2 border-2 group"
-              onClick={() => onNavigate(category.route)}
-            >
-              <CardHeader>
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Icon className={`w-8 h-8 ${category.color}`} />
-                </div>
-                <CardTitle className="text-2xl">{category.title}</CardTitle>
-                <CardDescription className="text-base">{category.description}</CardDescription>
-              </CardHeader>
-            </Card>
+            <Link key={category.title} to={category.route}>
+              <Card className="hover:shadow-xl transition-all duration-300 cursor-pointer hover:-translate-y-2 border-2 group h-full">
+                <CardHeader>
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className={`w-8 h-8 ${category.color}`} />
+                  </div>
+                  <CardTitle className="text-2xl">{category.title}</CardTitle>
+                  <CardDescription className="text-base">{category.description}</CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
           );
         })}
       </section>

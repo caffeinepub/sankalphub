@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sankalphub-a1l.caffeine.xyz/sitemap.xml

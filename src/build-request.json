@@ -1,36 +1,35 @@
 {
   "kind": "build_request",
-  "title": "Replace all contact email addresses site-wide with SankalpHubsolutions@gmail.com",
+  "title": "Remove platform branding from footer and show only copyright notice",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-35",
-      "text": "Search the entire frontend project for any existing email address text (including, but not limited to, the Contact page, Footer, and About page) and replace every occurrence with exactly: SankalpHubsolutions@gmail.com. Only update the email text itself; do not change any layout, styling, component structure, routes, tools, calculators, or page content beyond the email strings.",
+      "id": "REQ-1",
+      "text": "Update the site footer to remove all platform branding and display only the exact text: \"© 2026 SankalpHub Solutions. All rights reserved.\" Remove the existing \"Built with ❤️ using caffeine.ai\" text and the caffeine.ai link, and keep the footer otherwise clean (no additional footer content besides that single copyright line).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-latest"
+          "msg-1"
         ],
         "quotes": [
-          "Search the entire project and find any existing contact email text.\nThe email may appear in Contact page, Footer, or About section.\n\nReplace ALL existing email addresses with:\nSankalpHubsolutions@gmail.com\n\nDo NOT ask for file names.\nAutomatically locate the file and update only the email text.\nDo not change layout, tools, calculators, or design."
+          "Remove the footer text:\n\"Built with ❤️ using caffeine.ai\"\n\nDo not show any platform branding in the footer.\nKeep the footer clean with only:\n© 2026 SankalpHub Solutions. All rights reserved."
         ]
       },
       "acceptanceCriteria": [
-        "All email addresses displayed anywhere in the UI are exactly \"SankalpHubsolutions@gmail.com\".",
-        "No other email-like strings remain in the codebase UI content (e.g., previous addresses such as \"contact@sankalphub.com\" or \"business@sankalphub.com\" are fully removed/replaced).",
-        "No non-email text, layout, styling, navigation, tools, or calculator functionality is changed as part of this update."
+        "In frontend/src/App.tsx Layout footer, the rendered footer contains no references to \"caffeine\", \"caffeine.ai\", \"Built with\", or any outbound link to caffeine.ai.",
+        "The footer renders exactly: \"© 2026 SankalpHub Solutions. All rights reserved.\" (including the year 2026, and the company name \"SankalpHub Solutions\").",
+        "No other footer elements (e.g., footer navigation links) are rendered; the footer is a single clean line of text.",
+        "The change applies consistently across all routes/pages since the footer is part of the shared Layout."
       ]
     }
   ],
   "constraints": [
-    "Do not ask the user for file names; automatically locate and update occurrences in the codebase.",
-    "Update only email-address text; do not modify layout, design, tools, calculators, routing, or any other content.",
-    "Frontend immutablePaths must not be edited (compose existing UI components instead)."
+    "Do not edit any files under frontend/src/components/ui or any frontend immutablePaths listed in SYSTEM_CONTEXT.",
+    "Use English for all user-facing text."
   ],
   "nonGoals": [
-    "Adding new contact methods (phone/WhatsApp/Telegram) or new sections/pages.",
-    "Changing any navigation labels, routes, tool implementations, calculator logic, or styling.",
-    "Backend changes or adding persistence/APIs."
+    "Do not change header/navigation, routing, SEO metadata, sitemap, or robots.txt.",
+    "Do not introduce new branding, badges, or promotional links elsewhere on the site."
   ],
   "imageRequirements": {
     "required": [],

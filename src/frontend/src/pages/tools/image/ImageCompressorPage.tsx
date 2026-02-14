@@ -6,6 +6,7 @@ import { Slider } from '@/components/ui/slider';
 import { compressImage } from '../../../utils/image';
 import { downloadBlob, getTimestampedFilename } from '../../../utils/download';
 import { formatBytes, calculateReduction } from '../../../utils/format';
+import { RelatedTools } from '@/components/tools/RelatedTools';
 
 export function ImageCompressorPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -47,80 +48,83 @@ export function ImageCompressorPage() {
   };
 
   return (
-    <ToolShell
-      title="Image Compressor"
-      description="Reduce image file size while maintaining quality"
-      actionButton={{
-        label: 'Compress Image',
-        onClick: handleCompress,
-        disabled: !file,
-      }}
-      isLoading={isLoading}
-      loadingText="Compressing image..."
-      result={
-        result || error
-          ? {
-              content: error ? (
-                <p className="text-destructive">{error}</p>
-              ) : (
-                <div className="space-y-2">
-                  <p className="text-foreground font-semibold">Compression Complete!</p>
-                  <div className="grid grid-cols-2 gap-4 text-sm">
-                    <div>
-                      <p className="text-muted-foreground">Original Size:</p>
-                      <p className="font-medium">{formatBytes(result!.originalSize)}</p>
+    <>
+      <ToolShell
+        title="Image Compressor"
+        description="Reduce image file size while maintaining quality. The Image Compressor reduces the file size of your images while maintaining visible quality. It is ideal for uploading images to websites, emails, forms, and social media platforms that require smaller file sizes. Simply upload your image, choose the compression level, and download the optimized version instantly."
+        actionButton={{
+          label: 'Compress Image',
+          onClick: handleCompress,
+          disabled: !file,
+        }}
+        isLoading={isLoading}
+        loadingText="Compressing image..."
+        result={
+          result || error
+            ? {
+                content: error ? (
+                  <p className="text-destructive">{error}</p>
+                ) : (
+                  <div className="space-y-2">
+                    <p className="text-foreground font-semibold">Compression Complete!</p>
+                    <div className="grid grid-cols-2 gap-4 text-sm">
+                      <div>
+                        <p className="text-muted-foreground">Original Size:</p>
+                        <p className="font-medium">{formatBytes(result!.originalSize)}</p>
+                      </div>
+                      <div>
+                        <p className="text-muted-foreground">Compressed Size:</p>
+                        <p className="font-medium">{formatBytes(result!.compressedSize)}</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-muted-foreground">Compressed Size:</p>
-                      <p className="font-medium">{formatBytes(result!.compressedSize)}</p>
-                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      Reduced by {calculateReduction(result!.originalSize, result!.compressedSize)}%
+                    </p>
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    Reduced by {calculateReduction(result!.originalSize, result!.compressedSize)}%
-                  </p>
-                </div>
-              ),
-            }
-          : undefined
-      }
-      download={
-        result
-          ? {
-              onClick: handleDownload,
-              label: 'Download Compressed Image',
-            }
-          : undefined
-      }
-    >
-      <div className="space-y-4">
-        <div className="space-y-2">
-          <Label htmlFor="image">Select Image</Label>
-          <Input
-            id="image"
-            type="file"
-            accept="image/*"
-            onChange={handleFileChange}
-          />
-          {file && (
-            <p className="text-sm text-muted-foreground">{file.name}</p>
-          )}
-        </div>
+                ),
+              }
+            : undefined
+        }
+        download={
+          result
+            ? {
+                onClick: handleDownload,
+                label: 'Download Compressed Image',
+              }
+            : undefined
+        }
+      >
+        <div className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="image">Select Image</Label>
+            <Input
+              id="image"
+              type="file"
+              accept="image/*"
+              onChange={handleFileChange}
+            />
+            {file && (
+              <p className="text-sm text-muted-foreground">{file.name}</p>
+            )}
+          </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="quality">Quality: {Math.round(quality * 100)}%</Label>
-          <Slider
-            id="quality"
-            min={0.1}
-            max={1}
-            step={0.1}
-            value={[quality]}
-            onValueChange={(value) => setQuality(value[0])}
-          />
-          <p className="text-xs text-muted-foreground">
-            Lower quality = smaller file size
-          </p>
+          <div className="space-y-2">
+            <Label htmlFor="quality">Quality: {Math.round(quality * 100)}%</Label>
+            <Slider
+              id="quality"
+              min={0.1}
+              max={1}
+              step={0.1}
+              value={[quality]}
+              onValueChange={(value) => setQuality(value[0])}
+            />
+            <p className="text-xs text-muted-foreground">
+              Lower quality = smaller file size
+            </p>
+          </div>
         </div>
-      </div>
-    </ToolShell>
+      </ToolShell>
+      <RelatedTools currentTool="imageCompressor" />
+    </>
   );
 }

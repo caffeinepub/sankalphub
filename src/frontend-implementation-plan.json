@@ -1,21 +1,22 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Replace all contact email addresses site-wide with SankalpHubsolutions@gmail.com",
+  "title": "Remove platform branding from shared footer",
   "requirements": [
     {
-      "id": "REQ-35",
-      "summary": "Replace every UI-displayed email address in the frontend codebase with exactly SankalpHubsolutions@gmail.com, without changing any other content or layout.",
+      "id": "REQ-1",
+      "summary": "Update the shared Layout footer to remove all platform branding and render only the required copyright line.",
       "acceptanceCriteria": [
-        "All email addresses displayed anywhere in the UI are exactly \"SankalpHubsolutions@gmail.com\".",
-        "No other email-like strings remain in the codebase UI content (e.g., previous addresses such as \"contact@sankalphub.com\" or \"business@sankalphub.com\" are fully removed/replaced).",
-        "No non-email text, layout, styling, navigation, tools, or calculator functionality is changed as part of this update."
+        "In frontend/src/App.tsx Layout footer, the rendered footer contains no references to \"caffeine\", \"caffeine.ai\", \"Built with\", or any outbound link to caffeine.ai.",
+        "The footer renders exactly: \"© 2026 SankalpHub Solutions. All rights reserved.\" (including the year 2026, and the company name \"SankalpHub Solutions\").",
+        "No other footer elements (e.g., footer navigation links) are rendered; the footer is a single clean line of text.",
+        "The change applies consistently across all routes/pages since the footer is part of the shared Layout."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/ContactPage.tsx",
+          "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Replace the existing email strings \"contact@sankalphub.com\" and \"business@sankalphub.com\" with exactly \"SankalpHubsolutions@gmail.com\". Do not change any surrounding text, layout, styling, component structure, or behavior—only the email address text."
+          "description": "In the Layout component, replace the current footer markup (including footerLinks navigation and the \"Built with ❤️ using caffeine.ai\" text/link) with a single clean line of text that renders exactly: \"© 2026 SankalpHub Solutions. All rights reserved.\" Ensure there are no remaining references to caffeine/caffeine.ai and no other footer elements are rendered."
         }
       ]
     }

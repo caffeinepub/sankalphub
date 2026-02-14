@@ -1,10 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Replace all contact email addresses shown anywhere in the frontend UI with `SankalpHubsolutions@gmail.com`.
+**Goal:** Remove all platform branding from the site footer and show only a single copyright line.
 
 **Planned changes:**
-- Search the entire frontend codebase for any email address strings used in UI text (e.g., Contact page, Footer, About section) and replace each occurrence with exactly `SankalpHubsolutions@gmail.com`.
-- Ensure only the email text is updated, with no changes to layout, styling, component structure, routes, tools, calculators, or other page content.
+- Update the shared Layout footer in `frontend/src/App.tsx` to remove the “Built with ❤️ using caffeine.ai” text and any caffeine.ai link.
+- Render exactly this single footer line (and nothing else): “© 2026 SankalpHub Solutions. All rights reserved.”
 
-**User-visible outcome:** Everywhere the site displays a contact email address, it now shows `SankalpHubsolutions@gmail.com` and no previous email addresses appear in the UI.
+**User-visible outcome:** Across all pages, the footer displays only “© 2026 SankalpHub Solutions. All rights reserved.” with no platform branding or outbound links.
