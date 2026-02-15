@@ -36,8 +36,8 @@ export function EmiCalculatorPage() {
   return (
     <>
       <ToolShell
-        title="EMI Calculator"
-        description="Calculate your Equated Monthly Installment (EMI) for loans. The EMI Calculator helps you quickly estimate your monthly loan repayments for home loans, car loans, personal loans, and other financing needs. By providing the loan amount, interest rate, and repayment tenure, you can instantly understand how much you need to pay every month."
+        title="Free EMI Calculator Online"
+        description="Our free EMI calculator helps you calculate home loan EMI, car loan EMI, and personal loan EMI instantly. This online EMI calculator is simple, fast, and accurate for Indian users."
         actionButton={{
           label: 'Calculate EMI',
           onClick: handleCalculate,

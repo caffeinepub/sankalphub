@@ -1,22 +1,37 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Remove platform branding from shared footer",
+  "title": "EMI Calculator SEO metadata and intro content updates",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Update the shared Layout footer to remove all platform branding and render only the required copyright line.",
+      "summary": "Update /emi-calculator document title and meta description to the exact requested SEO strings without affecting other routes.",
       "acceptanceCriteria": [
-        "In frontend/src/App.tsx Layout footer, the rendered footer contains no references to \"caffeine\", \"caffeine.ai\", \"Built with\", or any outbound link to caffeine.ai.",
-        "The footer renders exactly: \"© 2026 SankalpHub Solutions. All rights reserved.\" (including the year 2026, and the company name \"SankalpHub Solutions\").",
-        "No other footer elements (e.g., footer navigation links) are rendered; the footer is a single clean line of text.",
-        "The change applies consistently across all routes/pages since the footer is part of the shared Layout."
+        "When navigating to /emi-calculator, the browser tab title equals \"Free EMI Calculator Online – Home & Personal Loan EMI India\".",
+        "When navigating to /emi-calculator, <meta name=\"description\"> content equals \"Calculate home loan, car loan and personal loan EMI instantly with our free EMI calculator online in India. Fast and accurate results.\".",
+        "No other routes’ titles/descriptions change."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/App.tsx",
+          "path": "frontend/src/utils/seo.ts",
           "operation": "modify",
-          "description": "In the Layout component, replace the current footer markup (including footerLinks navigation and the \"Built with ❤️ using caffeine.ai\" text/link) with a single clean line of text that renders exactly: \"© 2026 SankalpHub Solutions. All rights reserved.\" Ensure there are no remaining references to caffeine/caffeine.ai and no other footer elements are rendered."
+          "description": "Update the TOOL_SEO entry for '/emi-calculator' so applyToolSEO sets the document title and meta description to the exact required strings; do not change other route mappings."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Keep the EMI Calculator H1 exactly as requested and add the specified intro paragraph above the EMI tool UI without changing design or behavior.",
+      "acceptanceCriteria": [
+        "On /emi-calculator, the page’s primary heading (ToolShell title / H1 equivalent) renders exactly \"Free EMI Calculator Online\".",
+        "The provided intro paragraph renders above the calculator inputs/actions within the EMI page content flow.",
+        "Calculator inputs, calculation behavior, and result rendering remain unchanged."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/tools/calculators/EmiCalculatorPage.tsx",
+          "operation": "modify",
+          "description": "Update the ToolShell title to exactly \"Free EMI Calculator Online\" and ensure the intro paragraph text is rendered above the calculator UI (use the ToolShell description area so placement stays above the input/action section); do not alter calculation logic, inputs, or result rendering."
         }
       ]
     }

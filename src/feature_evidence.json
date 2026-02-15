@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-site-footer-to-remove-all-platform-branding-and-display-only-the-exact-text-2026-sankalphub-solutions-all-rights-reserved-remove-the-existing-built-with-using-caffeine-ai-text-and-the-caffeine-ai-link-and-keep-the-footer-otherwise-clean-no-additional-footer-content-besides-that-single-copyright-line",
-      "featureTitle": "Update the site footer to remove all platform branding and display only the exact text: \"© 2026 SankalpHub Solutions. All rights reserved.\" Remove the existing \"Built with ❤️ using caffeine.ai\" text and the caffeine.ai link, and keep the footer otherwise clean (no additional footer content besides that single copyright line).",
+      "featureId": "feature-update-the-emi-calculator-page-seo-metadata-for-the-emi-calculator-route-so-the-document-title-is-exactly-free-emi-calculator-online-home-personal-loan-emi-india-and-the-meta-description-is-exactly-calculate-home-loan-car-loan-and-personal-loan-emi-instantly-with-our-free-emi-calculator-online-in-india-fast-and-accurate-results",
+      "featureTitle": "Update the EMI Calculator page SEO metadata for the /emi-calculator route so the document title is exactly \"Free EMI Calculator Online – Home & Personal Loan EMI India\" and the meta description is exactly \"Calculate home loan, car loan and personal loan EMI instantly with our free EMI calculator online in India. Fast and accurate results.\".",
       "files": [
-        "frontend/src/App.tsx"
+        "frontend/src/utils/seo.ts"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -16,6 +16,24 @@
       ],
       "testIds": [
         "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-emi-calculator-page-on-page-seo-content-so-the-h1-remains-exactly-free-emi-calculator-online-and-add-the-following-introduction-paragraph-above-the-emi-tool-ui-our-free-emi-calculator-helps-you-calculate-home-loan-emi-car-loan-emi-and-personal-loan-emi-instantly-this-online-emi-calculator-is-simple-fast-and-accurate-for-indian-users",
+      "featureTitle": "Update the EMI Calculator page on-page SEO content so the H1 remains exactly \"Free EMI Calculator Online\" and add the following introduction paragraph above the EMI tool UI: \"Our free EMI calculator helps you calculate home loan EMI, car loan EMI, and personal loan EMI instantly. This online EMI calculator is simple, fast, and accurate for Indian users.\".",
+      "files": [
+        "frontend/src/pages/tools/calculators/EmiCalculatorPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
       ],
       "confidence": "high"
     }

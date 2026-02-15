@@ -1,38 +1,66 @@
 {
   "kind": "build_request",
-  "title": "Remove platform branding from footer and show only copyright notice",
+  "title": "Update EMI Calculator page SEO title, meta description, and intro content",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update the site footer to remove all platform branding and display only the exact text: \"© 2026 SankalpHub Solutions. All rights reserved.\" Remove the existing \"Built with ❤️ using caffeine.ai\" text and the caffeine.ai link, and keep the footer otherwise clean (no additional footer content besides that single copyright line).",
+      "text": "Update the EMI Calculator page SEO metadata for the /emi-calculator route so the document title is exactly \"Free EMI Calculator Online – Home & Personal Loan EMI India\" and the meta description is exactly \"Calculate home loan, car loan and personal loan EMI instantly with our free EMI calculator online in India. Fast and accurate results.\".",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "Remove the footer text:\n\"Built with ❤️ using caffeine.ai\"\n\nDo not show any platform branding in the footer.\nKeep the footer clean with only:\n© 2026 SankalpHub Solutions. All rights reserved."
+          "Update the EMI Calculator page with proper SEO optimization.\n\n1. Set the page title to:\nFree EMI Calculator Online – Home & Personal Loan EMI India\n\n2. Add this meta description:\nCalculate home loan, car loan and personal loan EMI instantly with our free EMI calculator online in India. Fast and accurate results.\n\nDo not change the design or tool functionality.\nOnly update SEO content."
         ]
       },
       "acceptanceCriteria": [
-        "In frontend/src/App.tsx Layout footer, the rendered footer contains no references to \"caffeine\", \"caffeine.ai\", \"Built with\", or any outbound link to caffeine.ai.",
-        "The footer renders exactly: \"© 2026 SankalpHub Solutions. All rights reserved.\" (including the year 2026, and the company name \"SankalpHub Solutions\").",
-        "No other footer elements (e.g., footer navigation links) are rendered; the footer is a single clean line of text.",
-        "The change applies consistently across all routes/pages since the footer is part of the shared Layout."
+        "When navigating to /emi-calculator, the browser tab title equals \"Free EMI Calculator Online – Home & Personal Loan EMI India\".",
+        "When navigating to /emi-calculator, <meta name=\"description\"> content equals \"Calculate home loan, car loan and personal loan EMI instantly with our free EMI calculator online in India. Fast and accurate results.\".",
+        "No other routes’ titles/descriptions change."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Update the EMI Calculator page on-page SEO content so the H1 remains exactly \"Free EMI Calculator Online\" and add the following introduction paragraph above the EMI tool UI: \"Our free EMI calculator helps you calculate home loan EMI, car loan EMI, and personal loan EMI instantly. This online EMI calculator is simple, fast, and accurate for Indian users.\".",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "3. Keep the H1 as:\nFree EMI Calculator Online\n\n4. Add this SEO introduction paragraph at the top of the page above the tool:\n\nOur free EMI calculator helps you calculate home loan EMI, car loan EMI, and personal loan EMI instantly. This online EMI calculator is simple, fast, and accurate for Indian users.\n\nDo not change the design or tool functionality.\nOnly update SEO content."
+        ]
+      },
+      "acceptanceCriteria": [
+        "On /emi-calculator, the page’s primary heading (ToolShell title / H1 equivalent) renders exactly \"Free EMI Calculator Online\".",
+        "The provided intro paragraph renders above the calculator inputs/actions within the EMI page content flow.",
+        "Calculator inputs, calculation behavior, and result rendering remain unchanged."
       ]
     }
   ],
   "constraints": [
-    "Do not edit any files under frontend/src/components/ui or any frontend immutablePaths listed in SYSTEM_CONTEXT.",
-    "Use English for all user-facing text."
+    "Do not change the EMI calculator’s design, layout styling, or functionality; only update SEO-related text and metadata.",
+    "Do not modify any files under frontend/src/components/ui (read-only components must be composed, not edited)."
   ],
   "nonGoals": [
-    "Do not change header/navigation, routing, SEO metadata, sitemap, or robots.txt.",
-    "Do not introduce new branding, badges, or promotional links elsewhere on the site."
+    "Adding new SEO features (e.g., Open Graph tags, JSON-LD schema) beyond the title and meta description requested.",
+    "Changing sitemap.xml or robots.txt.",
+    "Updating SEO content for any other tool/page besides /emi-calculator."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }

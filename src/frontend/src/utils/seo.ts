@@ -10,8 +10,8 @@ const DEFAULT_DESCRIPTION = 'Professional free online tools for PDF conversion, 
 // SEO metadata for the five priority tool pages
 const TOOL_SEO: Record<string, { title: string; description: string }> = {
   '/emi-calculator': {
-    title: 'EMI Calculator – Instant Loan EMI Calculation Online',
-    description: 'Calculate accurate monthly EMIs with this free EMI Calculator. Enter loan amount, tenure, and interest rate to get instant results. Fast, simple, and mobile-friendly.',
+    title: 'Free EMI Calculator Online – Home & Personal Loan EMI India',
+    description: 'Calculate home loan, car loan and personal loan EMI instantly with our free EMI calculator online in India. Fast and accurate results.',
   },
   '/age-calculator': {
     title: 'Age Calculator – Calculate Your Age in Seconds',
