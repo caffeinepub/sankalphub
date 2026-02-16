@@ -37,28 +37,93 @@
   </url>
   <url>
     <loc>https://sankalphub-a1l.caffeine.xyz/pdf-tools</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sankalphub-a1l.caffeine.xyz/image-tools</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sankalphub-a1l.caffeine.xyz/calculators</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sankalphub-a1l.caffeine.xyz/finance-guides</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sankalphub-a1l.caffeine.xyz/tools/pdf-merge</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sankalphub-a1l.caffeine.xyz/tools/pdf-split</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sankalphub-a1l.caffeine.xyz/tools/compress-pdf</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sankalphub-a1l.caffeine.xyz/tools/pdf-to-image</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sankalphub-a1l.caffeine.xyz/tools/image-resizer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sankalphub-a1l.caffeine.xyz/tools/jpg-to-png</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sankalphub-a1l.caffeine.xyz/tools/png-to-jpg</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sankalphub-a1l.caffeine.xyz/tools/image-converter</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sankalphub-a1l.caffeine.xyz/tools/loan-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sankalphub-a1l.caffeine.xyz/tools/bmi-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sankalphub-a1l.caffeine.xyz/tools/gst-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sankalphub-a1l.caffeine.xyz/tools/percentage-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sankalphub-a1l.caffeine.xyz/about</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://sankalphub-a1l.caffeine.xyz/contact</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://sankalphub-a1l.caffeine.xyz/privacy-policy</loc>

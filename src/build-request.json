@@ -1,66 +1,128 @@
 {
   "kind": "build_request",
-  "title": "SEO-only optimization for all tool pages (exclude EMI & Loan calculators)",
+  "title": "Make Finance Guides page visible at /finance-guides and add it to main navigation",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update route-level SEO metadata for every specified tool route (Age Calculator, BMI Calculator, SIP Calculator, GST Calculator, Percentage Calculator, JPG to PDF, PNG to JPG, JPG to PNG, Merge PDF, Split PDF, Compress PDF, PDF to Image, Image Compressor, Image Converter, Resize Image) so that each route has a unique SEO-friendly document title (max 60 characters) that starts with \"Free\" and naturally includes the main keyword, and a unique meta description that is 150–160 characters and includes the main keyword. Do not change SEO metadata for the EMI Calculator route or the Loan Calculator route.",
+      "text": "Ensure a publicly reachable Finance Guides page exists at the route /finance-guides (and is not a 404). If the page/route does not exist, create a new React page component and register it in the TanStack Router route tree so it renders within the existing Layout (header/footer/main container unchanged).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-6"
+          "msg-4"
         ],
         "quotes": [
-          "Apply SEO optimization to ALL tool pages except EMI Calculator and Loan Calculator (these are already optimized).",
-          "Create a unique SEO-friendly title (max 60 characters) starting with \"Free\" and including the main keyword naturally.",
-          "Add a unique 150-160 character meta description including the main keyword.",
-          "Ensure each page has a DIFFERENT title and DIFFERENT meta description.",
-          "Do NOT modify EMI Calculator or Loan Calculator pages."
+          "The Finance Guides page is not visible on the website.\n\nPlease:\n• Confirm if /finance-guides page was created\n• Add it to the main navigation menu\n• Make sure it is publicly accessible\n• Do NOT modify any existing tools\n\nDo not change anything else."
         ]
       },
       "acceptanceCriteria": [
-        "In frontend/src/utils/seo.ts, TOOL_SEO contains entries for all of these paths: /age-calculator, /tools/bmi-calculator, /sip-calculator, /tools/gst-calculator, /tools/percentage-calculator, /jpg-to-pdf, /tools/png-to-jpg, /tools/jpg-to-png, /tools/pdf-merge, /tools/pdf-split, /tools/compress-pdf, /tools/pdf-to-image, /image-compressor, /tools/image-converter, /tools/image-resizer.",
-        "For each of the above paths, the title string starts with \"Free\" and is <= 60 characters.",
-        "For each of the above paths, the description string is between 150 and 160 characters inclusive (counting spaces) and includes the tool’s main keyword (e.g., \"BMI calculator\", \"SIP calculator\", \"merge PDF\").",
-        "No two titles are identical across the updated tool pages, and no two meta descriptions are identical across the updated tool pages.",
-        "Entries for /emi-calculator and /tools/loan-calculator are not changed from their current values."
+        "Visiting /finance-guides in the browser renders the Finance Guides page content and does not show the NotFoundPage.",
+        "The Finance Guides page renders inside the existing Layout component (same header/footer and container styling).",
+        "No existing tool routes/components are modified."
       ]
     },
     {
       "id": "REQ-2",
-      "text": "For each specified tool page component (Age Calculator, BMI Calculator, SIP Calculator, GST Calculator, Percentage Calculator, JPG to PDF, PNG to JPG, JPG to PNG, Merge PDF, Split PDF, Compress PDF, PDF to Image, Image Compressor, Image Converter, Resize Image), update only on-screen SEO copy so that (a) the H1 remains keyword-focused and matches the page topic, and (b) a professional 3–4 line SEO introduction paragraph appears above each tool explaining what it does and naturally including the main keyword. Do not change any URL, design, layout, or tool functionality. Do not modify EMI Calculator or Loan Calculator pages.",
+      "text": "Add a route constant for Finance Guides in frontend/src/routes.ts and use that constant consistently for routing and navigation linking.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-6"
+          "msg-4"
         ],
         "quotes": [
-          "Keep the H1 keyword-focused and matching the page topic.",
-          "Add a 3-4 line SEO introduction paragraph above each tool explaining what it does and including the main keyword naturally.",
-          "Do NOT change any URL, design, layout, or tool functionality.",
-          "Do NOT modify EMI Calculator or Loan Calculator pages.",
-          "Only update SEO content."
+          "Confirm if /finance-guides page was created",
+          "Add it to the main navigation menu"
         ]
       },
       "acceptanceCriteria": [
-        "The following files are updated only in user-facing SEO text (titles/headings/intro paragraphs), with no functional logic changes: frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx, BmiCalculatorPage.tsx, SipCalculatorPage.tsx, GstCalculatorPage.tsx, PercentageCalculatorPage.tsx; frontend/src/pages/tools/pdf/JpgToPdfPage.tsx, PdfMergePage.tsx, PdfSplitPage.tsx, CompressPdfPage.tsx, PdfToImagePage.tsx; frontend/src/pages/tools/image/JpgToPngPage.tsx, PngToJpgPage.tsx, ImageCompressorPage.tsx, ImageConverterPage.tsx, ImageResizerPage.tsx.",
-        "Each of the specified pages displays a keyword-focused H1 that matches the tool topic (e.g., \"Free BMI Calculator\", \"Free Merge PDF Tool\"), and it is not replaced with unrelated wording.",
-        "Each of the specified pages includes a new or revised 3–4 line introduction paragraph above the tool UI that describes the tool and naturally includes the main keyword for that page.",
-        "No changes are made to routes/URLs, component structure that would alter layout, styling classes, or tool processing behavior; only textual SEO content is changed.",
-        "No changes are made to frontend/src/pages/tools/calculators/EmiCalculatorPage.tsx or frontend/src/pages/tools/calculators/LoanCalculatorPage.tsx."
+        "frontend/src/routes.ts exports a new ROUTES entry for the Finance Guides path.",
+        "The router registration and navigation link for Finance Guides reference the ROUTES constant (no duplicated hard-coded path strings for this page)."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add “Finance Guides” to the main navigation menu in the existing navItems list (desktop and mobile). Append it without reordering or restyling existing items.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Add it to the main navigation menu",
+          "Do NOT modify any existing tools",
+          "Do not change anything else."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Desktop header navigation shows a new link labeled “Finance Guides”.",
+        "Mobile navigation shows the same “Finance Guides” link.",
+        "The new link points to /finance-guides via the ROUTES constant.",
+        "Existing navigation items remain in the same order and appearance; the Finance Guides item is appended."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Ensure the Finance Guides page is publicly accessible (no authentication required, no conditional hiding). It must load correctly for anonymous users.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Make sure it is publicly accessible"
+        ]
+      },
+      "acceptanceCriteria": [
+        "When not logged in (anonymous), /finance-guides loads successfully and shows the Finance Guides page content.",
+        "No login prompt or auth-gated logic blocks access to /finance-guides."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Apply non-homepage SEO behavior for the Finance Guides route consistent with other non-tool static pages (i.e., do not apply tool SEO; do not modify homepage SEO).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Do not change anything else."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Navigating to /finance-guides applies the default (non-home) SEO behavior used by existing static pages (e.g., About/Contact) without altering the Home page SEO.",
+        "No changes are made to existing tool SEO entries unless strictly required for Finance Guides."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Update the static sitemap (frontend/public/sitemap.xml) to include the /finance-guides URL while leaving all existing sitemap entries unchanged.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "The Finance Guides page is not visible on the website."
+        ]
+      },
+      "acceptanceCriteria": [
+        "frontend/public/sitemap.xml contains a new <url> entry for https://sankalphub-a1l.caffeine.xyz/finance-guides.",
+        "All existing <url> entries remain present and unchanged aside from insertion of the new entry."
       ]
     }
   ],
   "constraints": [
-    "Do not change any URL/route constants or route paths.",
-    "Do not change design, layout, styling, or tool functionality; update SEO text only.",
-    "Do not modify EMI Calculator or Loan Calculator pages (including on-screen copy) and do not change their existing SEO metadata entries."
+    "Do not modify any existing tools (UI, logic, routes, or tool utilities).",
+    "Do not change the existing Layout structure or styling beyond appending a single new main navigation item.",
+    "Do not change anything else outside what is required to create/confirm /finance-guides, add it to navigation, ensure public access, apply consistent SEO behavior, and update sitemap.",
+    "Backend must remain single-actor; no backend changes are required for this request."
   ],
   "nonGoals": [
-    "Adding new pages, new tools, or changing tool categories/navigation.",
-    "Changing sitemap.xml or robots.txt behavior beyond what is required for SEO copy updates.",
-    "Implementing structured data (JSON-LD), OpenGraph/Twitter tags, or server-side rendering."
+    "Do not add or modify any calculator, PDF tool, or image tool functionality.",
+    "Do not redesign the site theme, header, footer, or homepage.",
+    "Do not add authentication or user accounts for Finance Guides.",
+    "Do not add a CMS, admin editor, or dynamic content system for guides."
   ],
   "imageRequirements": {
     "required": [],

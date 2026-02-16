@@ -2,11 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-route-level-seo-metadata-for-every-specified-tool-route-age-calculator-bmi-calculator-sip-calculator-gst-calculator-percentage-calculator-jpg-to-pdf-png-to-jpg-jpg-to-png-merge-pdf-split-pdf-compress-pdf-pdf-to-image-image-compressor-image-converter-resize-image-so-that-each-route-has-a-unique-seo-friendly-document-title-max-60-characters-that-starts-with-free-and-naturally-includes-the-main-keyword-and-a-unique-meta-description-that-is-150-160-characters-and-includes-the-main-keyword-do-not-change-seo-metadata-for-the-emi-calculator-route-or-the-loan-calculator-route",
-      "featureTitle": "Update route-level SEO metadata for every specified tool route (Age Calculator, BMI Calculator, SIP Calculator, GST Calculator, Percentage Calculator, JPG to PDF, PNG to JPG, JPG to PNG, Merge PDF, Split PDF, Compress PDF, PDF to Image, Image Compressor, Image Converter, Resize Image) so that each route has a unique SEO-friendly document title (max 60 characters) that starts with \"Free\" and naturally includes the main keyword, and a unique meta description that is 150–160 characters and includes the main keyword. Do not change SEO metadata for the EMI Calculator route or the Loan Calculator route.",
+      "featureId": "feature-ensure-a-publicly-reachable-finance-guides-page-exists-at-the-route-finance-guides-and-is-not-a-404-if-the-page-route-does-not-exist-create-a-new-react-page-component-and-register-it-in-the-tanstack-router-route-tree-so-it-renders-within-the-existing-layout-header-footer-main-container-unchanged",
+      "featureTitle": "Ensure a publicly reachable Finance Guides page exists at the route /finance-guides (and is not a 404). If the page/route does not exist, create a new React page component and register it in the TanStack Router route tree so it renders within the existing Layout (header/footer/main container unchanged).",
       "files": [
         "frontend/src/App.tsx",
-        "frontend/src/utils/seo.ts"
+        "frontend/src/pages/FinanceGuidesPage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -21,23 +21,11 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-for-each-specified-tool-page-component-age-calculator-bmi-calculator-sip-calculator-gst-calculator-percentage-calculator-jpg-to-pdf-png-to-jpg-jpg-to-png-merge-pdf-split-pdf-compress-pdf-pdf-to-image-image-compressor-image-converter-resize-image-update-only-on-screen-seo-copy-so-that-a-the-h1-remains-keyword-focused-and-matches-the-page-topic-and-b-a-professional-3-4-line-seo-introduction-paragraph-appears-above-each-tool-explaining-what-it-does-and-naturally-including-the-main-keyword-do-not-change-any-url-design-layout-or-tool-functionality-do-not-modify-emi-calculator-or-loan-calculator-pages",
-      "featureTitle": "For each specified tool page component (Age Calculator, BMI Calculator, SIP Calculator, GST Calculator, Percentage Calculator, JPG to PDF, PNG to JPG, JPG to PNG, Merge PDF, Split PDF, Compress PDF, PDF to Image, Image Compressor, Image Converter, Resize Image), update only on-screen SEO copy so that (a) the H1 remains keyword-focused and matches the page topic, and (b) a professional 3–4 line SEO introduction paragraph appears above each tool explaining what it does and naturally including the main keyword. Do not change any URL, design, layout, or tool functionality. Do not modify EMI Calculator or Loan Calculator pages.",
+      "featureId": "feature-add-a-route-constant-for-finance-guides-in-frontend-src-routes-ts-and-use-that-constant-consistently-for-routing-and-navigation-linking",
+      "featureTitle": "Add a route constant for Finance Guides in frontend/src/routes.ts and use that constant consistently for routing and navigation linking.",
       "files": [
-        "frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx",
-        "frontend/src/pages/tools/calculators/BmiCalculatorPage.tsx",
-        "frontend/src/pages/tools/calculators/GstCalculatorPage.tsx",
-        "frontend/src/pages/tools/calculators/PercentageCalculatorPage.tsx",
-        "frontend/src/pages/tools/calculators/SipCalculatorPage.tsx",
-        "frontend/src/pages/tools/image/ImageConverterPage.tsx",
-        "frontend/src/pages/tools/image/ImageResizerPage.tsx",
-        "frontend/src/pages/tools/image/JpgToPngPage.tsx",
-        "frontend/src/pages/tools/image/PngToJpgPage.tsx",
-        "frontend/src/pages/tools/pdf/CompressPdfPage.tsx",
-        "frontend/src/pages/tools/pdf/JpgToPdfPage.tsx",
-        "frontend/src/pages/tools/pdf/PdfMergePage.tsx",
-        "frontend/src/pages/tools/pdf/PdfSplitPage.tsx",
-        "frontend/src/pages/tools/pdf/PdfToImagePage.tsx"
+        "frontend/src/App.tsx",
+        "frontend/src/routes.ts"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -48,6 +36,79 @@
       ],
       "testIds": [
         "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-finance-guides-to-the-main-navigation-menu-in-the-existing-navitems-list-desktop-and-mobile-append-it-without-reordering-or-restyling-existing-items",
+      "featureTitle": "Add “Finance Guides” to the main navigation menu in the existing navItems list (desktop and mobile). Append it without reordering or restyling existing items.",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-the-finance-guides-page-is-publicly-accessible-no-authentication-required-no-conditional-hiding-it-must-load-correctly-for-anonymous-users",
+      "featureTitle": "Ensure the Finance Guides page is publicly accessible (no authentication required, no conditional hiding). It must load correctly for anonymous users.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/FinanceGuidesPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-non-homepage-seo-behavior-for-the-finance-guides-route-consistent-with-other-non-tool-static-pages-i-e-do-not-apply-tool-seo-do-not-modify-homepage-seo",
+      "featureTitle": "Apply non-homepage SEO behavior for the Finance Guides route consistent with other non-tool static pages (i.e., do not apply tool SEO; do not modify homepage SEO).",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-static-sitemap-frontend-public-sitemap-xml-to-include-the-finance-guides-url-while-leaving-all-existing-sitemap-entries-unchanged",
+      "featureTitle": "Update the static sitemap (frontend/public/sitemap.xml) to include the /finance-guides URL while leaving all existing sitemap entries unchanged.",
+      "files": [
+        "frontend/public/sitemap.xml"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
       ],
       "confidence": "high"
     }

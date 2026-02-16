@@ -1,28 +1,60 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "SEO optimization pass for tool pages (excluding already-optimized EMI Calculator and Loan Calculator), adding unique titles, meta descriptions, H1 alignment, and intro copy without changing URLs/design/functionality.",
+  "summary": "Website needs a publicly accessible Finance Guides page at /finance-guides and a link to it in the main navigation, without modifying existing tools.",
   "architectural_notes": [
-    "SEO updates must not change URLs, design/layout, or tool functionality.",
-    "Do not modify EMI Calculator or Loan Calculator pages during SEO optimization.",
-    "Each tool page must have a unique title and unique meta description; titles must start with 'Free' and be ≤60 characters; meta descriptions must be 150–160 characters."
+    "Do not modify any existing tools while implementing Finance Guides page visibility/navigation/access changes."
   ],
-  "known_issues": [],
-  "isFixRequest": false,
+  "known_issues": [
+    "Finance Guides page is currently not visible on the website."
+  ],
+  "isFixRequest": true,
   "existing_features": [
     {
-      "id": "feature-update-route-level-seo-metadata-for-every-specified-tool-route-age-calculator-bmi-calculator-sip-calculator-gst-calculator-percentage-calculator-jpg-to-pdf-png-to-jpg-jpg-to-png-merge-pdf-split-pdf-compress-pdf-pdf-to-image-image-compressor-image-converter-resize-image-so-that-each-route-has-a-unique-seo-friendly-document-title-max-60-characters-that-starts-with-free-and-naturally-includes-the-main-keyword-and-a-unique-meta-description-that-is-150-160-characters-and-includes-the-main-keyword-do-not-change-seo-metadata-for-the-emi-calculator-route-or-the-loan-calculator-route",
-      "title": "Update route-level SEO metadata for every specified tool route (Age Calculator, BMI Calculator, SIP Calculator, GST Calculator, Percentage Calculator, JPG to PDF, PNG to JPG, JPG to PNG, Merge PDF, Split PDF, Compress PDF, PDF to Image, Image Compressor, Image Converter, Resize Image) so that each route has a unique SEO-friendly document title (max 60 characters) that starts with \"Free\" and naturally includes the main keyword, and a unique meta description that is 150–160 characters and includes the main keyword. Do not change SEO metadata for the EMI Calculator route or the Loan Calculator route.",
+      "id": "feature-ensure-a-publicly-reachable-finance-guides-page-exists-at-the-route-finance-guides-and-is-not-a-404-if-the-page-route-does-not-exist-create-a-new-react-page-component-and-register-it-in-the-tanstack-router-route-tree-so-it-renders-within-the-existing-layout-header-footer-main-container-unchanged",
+      "title": "Ensure a publicly reachable Finance Guides page exists at the route /finance-guides (and is not a 404). If the page/route does not exist, create a new React page component and register it in the TanStack Router route tree so it renders within the existing Layout (header/footer/main container unchanged).",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-for-each-specified-tool-page-component-age-calculator-bmi-calculator-sip-calculator-gst-calculator-percentage-calculator-jpg-to-pdf-png-to-jpg-jpg-to-png-merge-pdf-split-pdf-compress-pdf-pdf-to-image-image-compressor-image-converter-resize-image-update-only-on-screen-seo-copy-so-that-a-the-h1-remains-keyword-focused-and-matches-the-page-topic-and-b-a-professional-3-4-line-seo-introduction-paragraph-appears-above-each-tool-explaining-what-it-does-and-naturally-including-the-main-keyword-do-not-change-any-url-design-layout-or-tool-functionality-do-not-modify-emi-calculator-or-loan-calculator-pages",
-      "title": "For each specified tool page component (Age Calculator, BMI Calculator, SIP Calculator, GST Calculator, Percentage Calculator, JPG to PDF, PNG to JPG, JPG to PNG, Merge PDF, Split PDF, Compress PDF, PDF to Image, Image Compressor, Image Converter, Resize Image), update only on-screen SEO copy so that (a) the H1 remains keyword-focused and matches the page topic, and (b) a professional 3–4 line SEO introduction paragraph appears above each tool explaining what it does and naturally including the main keyword. Do not change any URL, design, layout, or tool functionality. Do not modify EMI Calculator or Loan Calculator pages.",
+      "id": "feature-add-a-route-constant-for-finance-guides-in-frontend-src-routes-ts-and-use-that-constant-consistently-for-routing-and-navigation-linking",
+      "title": "Add a route constant for Finance Guides in frontend/src/routes.ts and use that constant consistently for routing and navigation linking.",
       "reqIds": [
         "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-finance-guides-to-the-main-navigation-menu-in-the-existing-navitems-list-desktop-and-mobile-append-it-without-reordering-or-restyling-existing-items",
+      "title": "Add “Finance Guides” to the main navigation menu in the existing navItems list (desktop and mobile). Append it without reordering or restyling existing items.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-finance-guides-page-is-publicly-accessible-no-authentication-required-no-conditional-hiding-it-must-load-correctly-for-anonymous-users",
+      "title": "Ensure the Finance Guides page is publicly accessible (no authentication required, no conditional hiding). It must load correctly for anonymous users.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-non-homepage-seo-behavior-for-the-finance-guides-route-consistent-with-other-non-tool-static-pages-i-e-do-not-apply-tool-seo-do-not-modify-homepage-seo",
+      "title": "Apply non-homepage SEO behavior for the Finance Guides route consistent with other non-tool static pages (i.e., do not apply tool SEO; do not modify homepage SEO).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-static-sitemap-frontend-public-sitemap-xml-to-include-the-finance-guides-url-while-leaving-all-existing-sitemap-entries-unchanged",
+      "title": "Update the static sitemap (frontend/public/sitemap.xml) to include the /finance-guides URL while leaving all existing sitemap entries unchanged.",
+      "reqIds": [
+        "REQ-6"
       ],
       "version": 1
     }
@@ -30,12 +62,24 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Apply SEO optimization to all specified tool pages (exclude EMI Calculator & Loan Calculator): unique 'Free…' titles (≤60 chars), unique 150–160 char meta descriptions, keyword-focused H1, and 3–4 line intro paragraph; no URL/design/layout/functionality changes.",
+      "summary": "Confirm and/or create the /finance-guides page so it exists on the website",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add Finance Guides (/finance-guides) to the main navigation menu",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Ensure /finance-guides is publicly accessible (not hidden/blocked by auth or permissions)",
       "reqIds": [],
       "status": "pending"
     }
   ],
-  "projectName": "SEO-only optimization for all tool pages (exclude EMI & Loan calculators)",
+  "projectName": "Make Finance Guides page visible at /finance-guides and add it to main navigation",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

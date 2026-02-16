@@ -9,6 +9,7 @@ export const ROUTES = {
   CONTACT: '/contact',
   PRIVACY_POLICY: '/privacy-policy',
   TERMS: '/terms',
+  FINANCE_GUIDES: '/finance-guides',
   // PDF Tools
   PDF_MERGE: '/tools/pdf-merge',
   PDF_SPLIT: '/tools/pdf-split',

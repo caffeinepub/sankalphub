@@ -1,116 +1,113 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "SEO-only optimization for tool pages (excluding EMI & Loan)",
+  "title": "Expose Finance Guides at /finance-guides and add to main navigation",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Add unique route-level SEO titles/descriptions for all specified tool routes (excluding EMI & Loan) and ensure they are applied per route.",
+      "summary": "Create/confirm a publicly reachable Finance Guides page at /finance-guides registered in the TanStack Router tree and rendered within the existing Layout.",
       "acceptanceCriteria": [
-        "In frontend/src/utils/seo.ts, TOOL_SEO contains entries for all of these paths: /age-calculator, /tools/bmi-calculator, /sip-calculator, /tools/gst-calculator, /tools/percentage-calculator, /jpg-to-pdf, /tools/png-to-jpg, /tools/jpg-to-png, /tools/pdf-merge, /tools/pdf-split, /tools/compress-pdf, /tools/pdf-to-image, /image-compressor, /tools/image-converter, /tools/image-resizer.",
-        "For each of the above paths, the title string starts with \"Free\" and is <= 60 characters.",
-        "For each of the above paths, the description string is between 150 and 160 characters inclusive (counting spaces) and includes the tool’s main keyword (e.g., \"BMI calculator\", \"SIP calculator\", \"merge PDF\").",
-        "No two titles are identical across the updated tool pages, and no two meta descriptions are identical across the updated tool pages.",
-        "Entries for /emi-calculator and /tools/loan-calculator are not changed from their current values."
+        "Visiting /finance-guides in the browser renders the Finance Guides page content and does not show the NotFoundPage.",
+        "The Finance Guides page renders inside the existing Layout component (same header/footer and container styling).",
+        "No existing tool routes/components are modified."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/utils/seo.ts",
-          "operation": "modify",
-          "description": "Update TOOL_SEO to include entries for every specified tool route path with unique titles (start with \"Free\", <= 60 chars) and unique meta descriptions (150–160 chars inclusive) that include the main keyword; do not change existing TOOL_SEO values for /emi-calculator and /tools/loan-calculator."
+          "path": "frontend/src/pages/FinanceGuidesPage.tsx",
+          "operation": "create",
+          "description": "Create a new Finance Guides React page component with static content consistent with existing non-tool pages (e.g., About/Contact). Use existing shadcn/ui Card components for layout consistency (verify the component's usage instructions before implementing)."
         },
         {
           "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Update the route wrapper components for the specified tool routes to call applyToolSEO() with the exact matching path (instead of restoreDefaultSEO where currently used), so each specified tool route applies its TOOL_SEO metadata at navigation time; do not alter the EMI Calculator or Loan Calculator wrapper behavior."
+          "description": "Register a new /finance-guides route in the TanStack Router route tree that renders the FinanceGuidesPage within the existing root Layout (header/footer/main container unchanged). Ensure this route does not collide with or alter any existing tool routes/components."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Update on-screen SEO copy only (H1 + 3–4 line intro above each tool) for all specified tool pages while preserving layout, styling, URLs, and functionality; exclude EMI & Loan pages.",
+      "summary": "Add a ROUTES constant for /finance-guides and use it consistently for router registration and navigation linking.",
       "acceptanceCriteria": [
-        "The following files are updated only in user-facing SEO text (titles/headings/intro paragraphs), with no functional logic changes: frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx, BmiCalculatorPage.tsx, SipCalculatorPage.tsx, GstCalculatorPage.tsx, PercentageCalculatorPage.tsx; frontend/src/pages/tools/pdf/JpgToPdfPage.tsx, PdfMergePage.tsx, PdfSplitPage.tsx, CompressPdfPage.tsx, PdfToImagePage.tsx; frontend/src/pages/tools/image/JpgToPngPage.tsx, PngToJpgPage.tsx, ImageCompressorPage.tsx, ImageConverterPage.tsx, ImageResizerPage.tsx.",
-        "Each of the specified pages displays a keyword-focused H1 that matches the tool topic (e.g., \"Free BMI Calculator\", \"Free Merge PDF Tool\"), and it is not replaced with unrelated wording.",
-        "Each of the specified pages includes a new or revised 3–4 line introduction paragraph above the tool UI that describes the tool and naturally includes the main keyword for that page.",
-        "No changes are made to routes/URLs, component structure that would alter layout, styling classes, or tool processing behavior; only textual SEO content is changed.",
-        "No changes are made to frontend/src/pages/tools/calculators/EmiCalculatorPage.tsx or frontend/src/pages/tools/calculators/LoanCalculatorPage.tsx."
+        "frontend/src/routes.ts exports a new ROUTES entry for the Finance Guides path.",
+        "The router registration and navigation link for Finance Guides reference the ROUTES constant (no duplicated hard-coded path strings for this page)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx",
+          "path": "frontend/src/routes.ts",
           "operation": "modify",
-          "description": "Update only the user-visible SEO copy so the H1 remains keyword-focused (e.g., \"Free Age Calculator\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"age calculator\"; do not change layout, styling classes, routes, or calculation behavior."
+          "description": "Add ROUTES.FINANCE_GUIDES mapped to /finance-guides and export it alongside existing route constants."
         },
         {
-          "path": "frontend/src/pages/tools/calculators/BmiCalculatorPage.tsx",
+          "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Update only the user-visible SEO copy so the H1 is keyword-focused (e.g., \"Free BMI Calculator\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"BMI calculator\"; do not change layout, styling classes, routes, or calculation behavior."
+          "description": "Update Finance Guides route registration and the navigation link to reference ROUTES.FINANCE_GUIDES (no hard-coded /finance-guides strings for this page)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Append a “Finance Guides” item to the existing main navigation navItems list for both desktop and mobile menus without reordering/restyling existing items.",
+      "acceptanceCriteria": [
+        "Desktop header navigation shows a new link labeled “Finance Guides”.",
+        "Mobile navigation shows the same “Finance Guides” link.",
+        "The new link points to /finance-guides via the ROUTES constant.",
+        "Existing navigation items remain in the same order and appearance; the Finance Guides item is appended."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Append a new navItems entry { label: 'Finance Guides', path: ROUTES.FINANCE_GUIDES } at the end of the existing navItems array so it appears in both desktop and mobile navigation, without changing existing items' order or styling."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Ensure /finance-guides is publicly accessible (no authentication required and no conditional hiding) and loads for anonymous users.",
+      "acceptanceCriteria": [
+        "When not logged in (anonymous), /finance-guides loads successfully and shows the Finance Guides page content.",
+        "No login prompt or auth-gated logic blocks access to /finance-guides."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Ensure the Finance Guides route is registered as a normal public route under the root Layout and is not wrapped in any auth-guard or conditional rendering logic; keep behavior consistent with other public static pages (About/Contact)."
         },
         {
-          "path": "frontend/src/pages/tools/calculators/SipCalculatorPage.tsx",
-          "operation": "modify",
-          "description": "Update only the user-visible SEO copy so the H1 is keyword-focused (e.g., \"Free SIP Calculator\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"SIP calculator\"; do not change layout, styling classes, routes, or calculation behavior."
-        },
+          "path": "frontend/src/pages/FinanceGuidesPage.tsx",
+          "operation": "create",
+          "description": "Implement the Finance Guides page as static, anonymous-friendly content with no authentication-dependent hooks or conditional access logic (verify the component's usage instructions before implementing if using shadcn/ui building blocks)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Apply default non-homepage, non-tool SEO behavior for /finance-guides consistent with existing static pages, without altering homepage SEO or tool SEO.",
+      "acceptanceCriteria": [
+        "Navigating to /finance-guides applies the default (non-home) SEO behavior used by existing static pages (e.g., About/Contact) without altering the Home page SEO.",
+        "No changes are made to existing tool SEO entries unless strictly required for Finance Guides."
+      ],
+      "file_operations": [
         {
-          "path": "frontend/src/pages/tools/calculators/GstCalculatorPage.tsx",
+          "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Update only the user-visible SEO copy so the H1 is keyword-focused (e.g., \"Free GST Calculator\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"GST calculator\"; do not change layout, styling classes, routes, or calculation behavior."
-        },
+          "description": "Add a FinanceGuides route wrapper component that calls restoreDefaultSEO() on mount (mirroring About/Contact) rather than applyToolSEO, and wire that wrapper to the Finance Guides route."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Update the static sitemap to include /finance-guides while leaving all existing entries unchanged.",
+      "acceptanceCriteria": [
+        "frontend/public/sitemap.xml contains a new <url> entry for https://sankalphub-a1l.caffeine.xyz/finance-guides.",
+        "All existing <url> entries remain present and unchanged aside from insertion of the new entry."
+      ],
+      "file_operations": [
         {
-          "path": "frontend/src/pages/tools/calculators/PercentageCalculatorPage.tsx",
+          "path": "frontend/public/sitemap.xml",
           "operation": "modify",
-          "description": "Update only the user-visible SEO copy so the H1 is keyword-focused (e.g., \"Free Percentage Calculator\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"percentage calculator\"; do not change layout, styling classes, routes, or calculation behavior."
-        },
-        {
-          "path": "frontend/src/pages/tools/pdf/JpgToPdfPage.tsx",
-          "operation": "modify",
-          "description": "Update only the user-visible SEO copy so the H1 is keyword-focused (e.g., \"Free JPG to PDF Converter\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"JPG to PDF\"; do not change layout, styling classes, routes, or PDF conversion behavior."
-        },
-        {
-          "path": "frontend/src/pages/tools/pdf/PdfMergePage.tsx",
-          "operation": "modify",
-          "description": "Update only the user-visible SEO copy so the H1 is keyword-focused (e.g., \"Free Merge PDF Tool\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"merge PDF\"; do not change layout, styling classes, routes, or merge behavior."
-        },
-        {
-          "path": "frontend/src/pages/tools/pdf/PdfSplitPage.tsx",
-          "operation": "modify",
-          "description": "Update only the user-visible SEO copy so the H1 is keyword-focused (e.g., \"Free Split PDF Tool\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"split PDF\"; do not change layout, styling classes, routes, or split behavior."
-        },
-        {
-          "path": "frontend/src/pages/tools/pdf/CompressPdfPage.tsx",
-          "operation": "modify",
-          "description": "Update only the user-visible SEO copy so the existing H1 becomes keyword-focused (e.g., \"Free Compress PDF Tool\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"compress PDF\"; do not change layout, styling classes, routes, or compression behavior."
-        },
-        {
-          "path": "frontend/src/pages/tools/pdf/PdfToImagePage.tsx",
-          "operation": "modify",
-          "description": "Update only the user-visible SEO copy so the existing H1 becomes keyword-focused (e.g., \"Free PDF to Image Converter\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"PDF to image\"; do not change layout, styling classes, routes, or conversion behavior."
-        },
-        {
-          "path": "frontend/src/pages/tools/image/JpgToPngPage.tsx",
-          "operation": "modify",
-          "description": "Update only the user-visible SEO copy so the H1 is keyword-focused (e.g., \"Free JPG to PNG Converter\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"JPG to PNG\"; do not change layout, styling classes, routes, or conversion behavior."
-        },
-        {
-          "path": "frontend/src/pages/tools/image/PngToJpgPage.tsx",
-          "operation": "modify",
-          "description": "Update only the user-visible SEO copy so the existing H1 becomes keyword-focused (e.g., \"Free PNG to JPG Converter\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"PNG to JPG\"; do not change layout, styling classes, routes, or conversion behavior."
-        },
-        {
-          "path": "frontend/src/pages/tools/image/ImageCompressorPage.tsx",
-          "operation": "modify",
-          "description": "Update only the user-visible SEO copy so the H1 is keyword-focused (e.g., \"Free Image Compressor\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"image compressor\"; do not change layout, styling classes, routes, or compression behavior."
-        },
-        {
-          "path": "frontend/src/pages/tools/image/ImageConverterPage.tsx",
-          "operation": "modify",
-          "description": "Update only the user-visible SEO copy so the existing H1 becomes keyword-focused (e.g., \"Free Image Converter\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"image converter\"; do not change layout, styling classes, routes, or conversion behavior."
-        },
-        {
-          "path": "frontend/src/pages/tools/image/ImageResizerPage.tsx",
-          "operation": "modify",
-          "description": "Update only the user-visible SEO copy so the H1 is keyword-focused (e.g., \"Free Image Resizer\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"image resizer\"; do not change layout, styling classes, routes, or resize behavior."
+          "description": "Insert a new <url> entry for https://sankalphub-a1l.caffeine.xyz/finance-guides, preserving all existing <url> entries exactly as-is aside from the new insertion."
         }
       ]
     }

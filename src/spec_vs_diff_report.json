@@ -1,91 +1,35 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-16T07:52:03.453Z",
-  "summary": "The diff includes substantial on-page copy changes for multiple tool pages and updates to SEO utilities, but it also appears to change route path constants (explicitly disallowed) and does not provide sufficient evidence that all REQ-1 metadata constraints (coverage, uniqueness, and 150–160 char descriptions) are met for every specified tool route.",
+  "generatedAt": "2026-02-16T15:05:38.903Z",
+  "summary": "Diff adds a new FinanceGuidesPage component, introduces a ROUTES.FINANCE_GUIDES constant, appends a Finance Guides nav item, and adds /finance-guides to sitemap.xml. However, the diff summary does not provide enough visible evidence to confirm the requested non-homepage (static-page) SEO behavior is applied for /finance-guides, and it includes changes to ancillary project tracking/summary files not requested.",
   "missing_requirements": [
     {
-      "id": "REQ-1",
-      "requirement": "Meta descriptions for each specified tool route must be 150–160 characters inclusive and include the main keyword; titles must be unique, start with \"Free\", and be <= 60 characters; TOOL_SEO must contain entries for all specified paths.",
-      "reason": "The diff shows multiple TOOL_SEO descriptions that are visibly shorter than 150 characters (e.g., age-calculator, gst-calculator, percentage-calculator), and the seo.ts content is truncated before confirming all required paths (/tools/compress-pdf, /tools/pdf-to-image, /tools/image-converter, /tools/image-resizer, etc.) are present and that all titles/descriptions are unique.",
+      "id": "REQ-5",
+      "requirement": "Apply non-homepage SEO behavior for the Finance Guides route consistent with other non-tool static pages (i.e., do not apply tool SEO; do not modify homepage SEO).",
+      "reason": "App.tsx is truncated and does not show the actual SEO branching logic for the new /finance-guides route; while SEO utilities are imported, the diff excerpt does not confirm that /finance-guides uses the same default/static-page SEO behavior as other non-tool pages (e.g., About/Contact) and not tool SEO.",
       "evidence": [
-        "frontend/src/utils/seo.ts (shows short descriptions such as for /age-calculator, /tools/gst-calculator, /tools/percentage-calculator; file truncated before confirming all required entries)"
-      ]
-    },
-    {
-      "id": "REQ-1",
-      "requirement": "Do not change SEO metadata entries for /emi-calculator and /tools/loan-calculator from their current values.",
-      "reason": "Although seo.ts contains entries for /emi-calculator and /tools/loan-calculator, the diff summary does not provide a before/after comparison proving they were not changed.",
-      "evidence": [
-        "frontend/src/utils/seo.ts"
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "requirement": "Each specified page must include a professional 3–4 line introduction paragraph above the tool UI, with only SEO text changes and no design/layout/functionality changes.",
-      "reason": "Several pages appear to use different page structures (custom <div> headers, Card layouts) rather than only adjusting text within an existing structure; the diff summary does not prove that only text changed (and not layout/component structure) across all specified pages.",
-      "evidence": [
-        "frontend/src/pages/tools/pdf/CompressPdfPage.tsx",
-        "frontend/src/pages/tools/pdf/PdfToImagePage.tsx",
-        "frontend/src/pages/tools/image/ImageConverterPage.tsx",
-        "frontend/src/pages/tools/image/PngToJpgPage.tsx",
-        "frontend/src/pages/tools/calculators/PercentageCalculatorPage.tsx"
+        "frontend/src/App.tsx"
       ]
     }
   ],
   "hallucinated_features": [
     {
-      "description": "Route path constants/route slugs updated (explicitly disallowed by constraints: \"Do not change any URL/route constants or route paths\").",
-      "reason": "The diff summary explicitly states routes.ts was updated with \"SEO-friendly slugs\" for priority tools.",
+      "description": "Updated project tracking/state metadata unrelated to creating the /finance-guides page, adding it to navigation, SEO behavior, or sitemap updates.",
+      "reason": "The BuildRequest does not ask for updating internal project state/summary files; these changes are outside the required implementation surface.",
       "evidence": [
-        "frontend-file-summaries.txt (\"frontend/src/routes.ts\": \"Route path constants updated with SEO-friendly slugs...\")"
-      ]
-    },
-    {
-      "description": "Global styling/theme changes applied (explicitly disallowed: \"Do not change design, layout, styling\").",
-      "reason": "The diff summary indicates index.css was modified with an \"enhanced OKLCH color system\" and typography changes.",
-      "evidence": [
-        "frontend-file-summaries.txt (\"frontend/src/index.css\": \"Global stylesheet with enhanced OKLCH color system... improved typography...\")"
-      ]
-    },
-    {
-      "description": "Non-SEO navigation/link behavior changes across multiple pages (beyond \"update SEO text only\").",
-      "reason": "The diff summary notes HomePage/AllToolsPage/PdfToolsPage/ImageToolsPage/CalculatorsPage were updated to use TanStack Router Link components for crawlable navigation, which is a behavior/implementation change not requested.",
-      "evidence": [
-        "frontend-file-summaries.txt (\"frontend/src/pages/HomePage.tsx\": \"updated to use TanStack Router Link...\")",
-        "frontend-file-summaries.txt (\"frontend/src/pages/AllToolsPage.tsx\": \"updated to use TanStack Router Link...\")",
-        "frontend-file-summaries.txt (\"frontend/src/pages/PdfToolsPage.tsx\": \"updated to use TanStack Router Link...\")",
-        "frontend-file-summaries.txt (\"frontend/src/pages/ImageToolsPage.tsx\": \"updated to use TanStack Router Link...\")",
-        "frontend-file-summaries.txt (\"frontend/src/pages/CalculatorsPage.tsx\": \"updated to use TanStack Router Link...\")"
-      ]
-    },
-    {
-      "description": "Unrequested changes to authentication/config hook (unrelated to SEO-only copy updates).",
-      "reason": "The diff summary includes changes to useInternetIdentity.ts removing process.env usage, which is outside the BuildRequest scope.",
-      "evidence": [
-        "frontend-file-summaries.txt (\"frontend/src/hooks/useInternetIdentity.ts\": \"removed Node.js process.env usage\")"
+        "project_state.json",
+        "frontend-file-summaries.txt"
       ]
     }
   ],
-  "confidence": 0.74,
+  "confidence": 0.62,
   "changed_files": [
     "frontend-file-summaries.txt",
+    "frontend/public/sitemap.xml",
     "frontend/src/App.tsx",
-    "frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx",
-    "frontend/src/pages/tools/calculators/BmiCalculatorPage.tsx",
-    "frontend/src/pages/tools/calculators/GstCalculatorPage.tsx",
-    "frontend/src/pages/tools/calculators/PercentageCalculatorPage.tsx",
-    "frontend/src/pages/tools/calculators/SipCalculatorPage.tsx",
-    "frontend/src/pages/tools/image/ImageConverterPage.tsx",
-    "frontend/src/pages/tools/image/ImageResizerPage.tsx",
-    "frontend/src/pages/tools/image/JpgToPngPage.tsx",
-    "frontend/src/pages/tools/image/PngToJpgPage.tsx",
-    "frontend/src/pages/tools/pdf/CompressPdfPage.tsx",
-    "frontend/src/pages/tools/pdf/JpgToPdfPage.tsx",
-    "frontend/src/pages/tools/pdf/PdfMergePage.tsx",
-    "frontend/src/pages/tools/pdf/PdfSplitPage.tsx",
-    "frontend/src/pages/tools/pdf/PdfToImagePage.tsx",
-    "frontend/src/utils/seo.ts",
+    "frontend/src/pages/FinanceGuidesPage.tsx",
+    "frontend/src/routes.ts",
     "project_state.json"
   ]
 }

@@ -1,12 +1,14 @@
 # Specification
 
 ## Summary
-**Goal:** Improve SEO for all specified tool pages by updating per-route metadata and on-page SEO copy, while excluding EMI and Loan calculator pages.
+**Goal:** Make the Finance Guides page publicly accessible at `/finance-guides` and visible in the main navigation.
 
 **Planned changes:**
-- Update `frontend/src/utils/seo.ts` to ensure `TOOL_SEO` includes unique, SEO-friendly titles (start with “Free”, max 60 chars) and unique 150–160 character meta descriptions (include main keyword) for:  
-  `/age-calculator`, `/tools/bmi-calculator`, `/sip-calculator`, `/tools/gst-calculator`, `/tools/percentage-calculator`, `/jpg-to-pdf`, `/tools/png-to-jpg`, `/tools/jpg-to-png`, `/tools/pdf-merge`, `/tools/pdf-split`, `/tools/compress-pdf`, `/tools/pdf-to-image`, `/image-compressor`, `/tools/image-converter`, `/tools/image-resizer`.
-- Update only user-facing SEO text on the specified tool pages to keep a keyword-focused H1 and add a professional 3–4 line introduction paragraph above each tool UI that naturally includes the main keyword, without changing layout, styling, routes, or functionality.
-- Ensure `/emi-calculator` and `/tools/loan-calculator` SEO metadata and on-page copy are not modified.
+- Confirm or create a React Finance Guides page and register the `/finance-guides` route in the TanStack Router route tree so it renders within the existing Layout.
+- Add a `ROUTES` constant for Finance Guides in `frontend/src/routes.ts` and use it for both route registration and navigation linking.
+- Append a “Finance Guides” link to the existing `navItems` list so it appears in both desktop and mobile navigation without changing existing items.
+- Ensure `/finance-guides` is not auth-gated and loads for anonymous users.
+- Apply the default non-homepage SEO behavior used by existing static pages for the `/finance-guides` route.
+- Update `frontend/public/sitemap.xml` to include `https://sankalphub-a1l.caffeine.xyz/finance-guides` without altering existing entries.
 
-**User-visible outcome:** Each specified tool page shows a clear keyword-focused heading and a short intro explaining the tool, and each route has unique, optimized titles and meta descriptions—while EMI and Loan calculator pages remain unchanged.
+**User-visible outcome:** Users can visit `/finance-guides` without logging in and see the Finance Guides page, and can navigate to it from the main menu on desktop and mobile.

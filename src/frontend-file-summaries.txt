@@ -1,12 +1,12 @@
 {
   "frontend/src/config.ts": "Configuration module that loads environment variables and creates the backend actor with proper agent setup for both local and production environments.",
   "frontend/src/components/ErrorBoundary.tsx": "React error boundary component that catches runtime errors and displays a user-friendly error message with a refresh button.",
-  "frontend/src/App.tsx": "Main application component with TanStack Router, header navigation, mobile menu, and route wrappers that apply SEO metadata via applyToolSEO for all specified tool routes.",
+  "frontend/src/App.tsx": "Main application component with TanStack Router, header navigation including Finance Guides link in both desktop and mobile menus, route registration for /finance-guides with default SEO, and Layout component with conditional ExploreMoreTools section.",
   "frontend/src/main.tsx": "Application entry point that wraps the app with ErrorBoundary, QueryClientProvider, and InternetIdentityProvider.",
   "frontend/src/hooks/useInternetIdentity.ts": "Internet Identity authentication hook and provider with browser-safe configuration loading (removed Node.js process.env usage).",
   "frontend/index.html": "HTML entry point reviewed to ensure no global noindex directives block indexing.",
   "frontend/src/index.css": "Global stylesheet with enhanced OKLCH color system using blue-purple gradient theme, improved typography, and font smoothing.",
-  "frontend/src/routes.ts": "Route path constants updated with SEO-friendly slugs for the five priority tools (EMI, Age, SIP calculators at root level; Image Compressor and JPG to PDF with clean paths).",
+  "frontend/src/routes.ts": "Route path constants including the new FINANCE_GUIDES constant mapped to /finance-guides alongside all existing route definitions.",
   "frontend/src/utils/download.ts": "Helper functions for triggering blob downloads and generating timestamped filenames.",
   "frontend/src/utils/format.ts": "Formatting utilities for bytes, numbers, and percentage calculations.",
   "frontend/src/utils/pdf.ts": "Demo PDF utilities including merge, split, compress, PDF-to-image, and image-to-PDF functions that simulate processing.",
@@ -47,7 +47,10 @@
   "frontend/src/utils/seo.ts": "SEO utility with unique metadata for all tool pages including titles (max 60 chars, starting with \"Free\") and descriptions (150-160 chars) for Age, BMI, SIP, GST, Percentage calculators and all PDF/image tools, with duplicate /image-compressor entry removed.",
   "frontend/src/pages/NotFoundPage.tsx": "User-friendly 404 page with crawlable links back to homepage and all tools page.",
   "frontend/src/components/tools/RelatedTools.tsx": "Reusable component displaying crawlable links to the other four priority tools (excludes current tool).",
-  "frontend/public/sitemap.xml": "XML sitemap updated with correct domain (sankalphub-a1l.caffeine.xyz) containing all public pages with priority emphasis on the five SEO-optimized tool pages.",
+  "frontend/public/sitemap.xml": "XML sitemap with all public pages including the new /finance-guides entry with weekly changefreq and 0.8 priority.",
   "frontend/public/robots.txt": "Robots.txt file allowing all crawlers and referencing the sitemap at the correct caffeine.xyz domain for discovery.",
-  "frontend/VERIFICATION_CHECKLIST.md": "Comprehensive verification checklist documenting how to test that each of the five priority tool URLs works independently, including direct access, hard refresh, navigation, SEO metadata, and crawlability tests, with technical notes explaining the SPA architecture."
+  "frontend/VERIFICATION_CHECKLIST.md": "Comprehensive verification checklist documenting how to test that each of the five priority tool URLs works independently, including direct access, hard refresh, navigation, SEO metadata, and crawlability tests, with technical notes explaining the SPA architecture.",
+  "frontend/src/utils/exploreMoreTools.ts": "Utility module that defines all tool links including EMI and Loan calculators, determines route eligibility for the Explore More Tools section on all tool pages, and provides deterministic selection of 5-6 related tools based on current route.",
+  "frontend/src/components/tools/ExploreMoreTools.tsx": "Simple component that renders an \"Explore More Tools\" section with a heading and 5 internal tool links in a compact horizontal layout with subtle styling and hover effects.",
+  "frontend/src/pages/FinanceGuidesPage.tsx": "Finance Guides page with educational content about EMI, SIP, loans, GST, financial planning, and tax saving strategies displayed in a card-based grid layout."
 }

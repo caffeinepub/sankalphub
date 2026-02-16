@@ -1,8 +1,10 @@
-import { createRouter, createRoute, createRootRoute, RouterProvider, Link, Outlet } from '@tanstack/react-router';
+import { createRouter, createRoute, createRootRoute, RouterProvider, Link, Outlet, useLocation } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { ROUTES } from './routes';
 import { applyHomeSEO, restoreDefaultSEO, applyToolSEO } from './utils/seo';
+import { shouldShowExploreMore, getRelatedTools } from './utils/exploreMoreTools';
+import { ExploreMoreTools } from './components/tools/ExploreMoreTools';
 import { HomePage } from './pages/HomePage';
 import { AllToolsPage } from './pages/AllToolsPage';
 import { PdfToolsPage } from './pages/PdfToolsPage';
@@ -12,6 +14,7 @@ import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 import { TermsPage } from './pages/TermsPage';
+import { FinanceGuidesPage } from './pages/FinanceGuidesPage';
 import { PdfMergePage } from './pages/tools/pdf/PdfMergePage';
 import { PdfSplitPage } from './pages/tools/pdf/PdfSplitPage';
 import { CompressPdfPage } from './pages/tools/pdf/CompressPdfPage';
@@ -34,6 +37,8 @@ import { NotFoundPage } from './pages/NotFoundPage';
 // Layout component with header and footer
 function Layout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   const navItems = [
     { label: 'Home', path: ROUTES.HOME },
@@ -42,6 +47,7 @@ function Layout() {
     { label: 'Calculators', path: ROUTES.CALCULATORS },
     { label: 'About', path: ROUTES.ABOUT },
     { label: 'Contact', path: ROUTES.CONTACT },
+    { label: 'Finance Guides', path: ROUTES.FINANCE_GUIDES },
   ];
 
   const priorityTools = [
@@ -51,6 +57,10 @@ function Layout() {
     { label: 'Image Compressor', path: ROUTES.IMAGE_COMPRESSOR },
     { label: 'JPG to PDF', path: ROUTES.IMAGE_TO_PDF },
   ];
+
+  // Determine if we should show the Explore More Tools section
+  const showExploreMore = shouldShowExploreMore(currentPath);
+  const relatedTools = showExploreMore ? getRelatedTools(currentPath) : [];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
@@ -149,11 +159,18 @@ function Layout() {
         <Outlet />
       </main>
 
+      {/* Explore More Tools Section */}
+      {showExploreMore && (
+        <div className="container mx-auto px-4">
+          <ExploreMoreTools tools={relatedTools} />
+        </div>
+      )}
+
       {/* Footer */}
       <footer className="border-t bg-white/90 dark:bg-gray-900/90 backdrop-blur-md mt-16">
         <div className="container mx-auto px-4 py-8">
           <div className="text-sm text-muted-foreground text-center">
-            <p>© 2026 SankalpHub Solutions. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} SankalpHub Solutions. All rights reserved.</p>
           </div>
         </div>
       </footer>
@@ -223,6 +240,13 @@ function TermsComponent() {
     restoreDefaultSEO();
   }, []);
   return <TermsPage />;
+}
+
+function FinanceGuidesComponent() {
+  useEffect(() => {
+    restoreDefaultSEO();
+  }, []);
+  return <FinanceGuidesPage />;
 }
 
 function PdfMergeComponent() {
@@ -404,6 +428,12 @@ const termsRoute = createRoute({
   component: TermsComponent,
 });
 
+const financeGuidesRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/finance-guides',
+  component: FinanceGuidesComponent,
+});
+
 // PDF Tools Routes
 const pdfMergeRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -527,6 +557,7 @@ const routeTree = rootRoute.addChildren([
   contactRoute,
   privacyRoute,
   termsRoute,
+  financeGuidesRoute,
   pdfMergeRoute,
   pdfSplitRoute,
   compressPdfRoute,
