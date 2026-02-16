@@ -1,11 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Improve SEO for the EMI Calculator page by updating only its metadata and introductory on-page text.
+**Goal:** Update the Age Calculator page’s SEO metadata and on-page SEO copy (H1 + intro paragraph) without changing the tool’s design or functionality.
 
 **Planned changes:**
-- Set the `/emi-calculator` document title to exactly: "Free EMI Calculator Online – Home & Personal Loan EMI India".
-- Set the `/emi-calculator` meta description to exactly: "Calculate home loan, car loan and personal loan EMI instantly with our free EMI calculator online in India. Fast and accurate results.".
-- Keep the page H1 as exactly "Free EMI Calculator Online" and add the provided intro paragraph above the EMI calculator UI without changing layout or functionality.
+- Update `/age-calculator` SEO metadata in `frontend/src/utils/seo.ts` to set the exact provided page title and meta description.
+- Update `frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx` so the H1 remains exactly "Free Age Calculator Online" and add the provided introduction paragraph directly under the H1 and above the tool inputs/actions.
 
-**User-visible outcome:** Visiting `/emi-calculator` shows the same EMI tool and design, with an added SEO intro paragraph above it, and the browser title/meta description updated for that route only.
+**User-visible outcome:** The Age Calculator page shows the updated browser title and meta description, and displays the new intro paragraph above the tool while the calculator behavior and layout remain unchanged.

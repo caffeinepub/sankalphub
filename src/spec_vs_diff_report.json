@@ -1,22 +1,29 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-15T05:06:24.880Z",
-  "summary": "REQ-1 and REQ-2 appear implemented for /emi-calculator: the page H1/title remains \"Free EMI Calculator Online\", an intro paragraph was added via ToolShell description, and SEO utility now sets exact requested title/meta description for /emi-calculator. However, the diff also introduces SEO metadata for additional routes beyond /emi-calculator, which conflicts with the acceptance criterion that no other routes’ titles/descriptions change and with the non-goal of updating SEO content for other pages.",
+  "generatedAt": "2026-02-16T06:56:52.989Z",
+  "summary": "REQ-1 and REQ-2 appear implemented: the /age-calculator TOOL_SEO title/description were updated in seo.ts, and the Age Calculator page H1/title plus the intro paragraph copy were set on the page via ToolShell props. Two additional modified files (frontend-file-summaries.txt and project_state.json) are not requested by the BuildRequest.",
   "missing_requirements": [],
   "hallucinated_features": [
     {
-      "description": "Added page-specific SEO title/meta description mappings for routes other than /emi-calculator (e.g., /age-calculator, /sip-calculator, /image-compressor, /jpg-to-pdf).",
-      "reason": "BuildRequest explicitly limits SEO updates to /emi-calculator and states no other routes’ titles/descriptions should change; adding metadata for other routes is outside scope and may change their document titles/descriptions.",
+      "description": "Updated project tracking/state metadata (project_state.json) unrelated to the requested SEO copy changes.",
+      "reason": "BuildRequest only asks for SEO text updates in Age Calculator page and seo metadata; it does not request updates to project tracking/state files.",
       "evidence": [
-        "frontend/src/utils/seo.ts"
+        "project_state.json"
+      ]
+    },
+    {
+      "description": "Updated repository documentation/summary file (frontend-file-summaries.txt) unrelated to the requested SEO copy changes.",
+      "reason": "BuildRequest does not request updating documentation/summaries; only specifies updates to seo.ts and AgeCalculatorPage.tsx content.",
+      "evidence": [
+        "frontend-file-summaries.txt"
       ]
     }
   ],
-  "confidence": 0.7,
+  "confidence": 0.74,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/src/pages/tools/calculators/EmiCalculatorPage.tsx",
+    "frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx",
     "frontend/src/utils/seo.ts",
     "project_state.json"
   ]

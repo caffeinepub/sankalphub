@@ -1,66 +1,59 @@
 {
   "kind": "build_request",
-  "title": "Update EMI Calculator page SEO title, meta description, and intro content",
+  "title": "Update Age Calculator page SEO (title, meta description, H1, intro paragraph)",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update the EMI Calculator page SEO metadata for the /emi-calculator route so the document title is exactly \"Free EMI Calculator Online – Home & Personal Loan EMI India\" and the meta description is exactly \"Calculate home loan, car loan and personal loan EMI instantly with our free EMI calculator online in India. Fast and accurate results.\".",
+      "text": "Update the Age Calculator route SEO metadata so that the browser page title and meta description match the provided SEO copy for the /age-calculator page.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "Update the EMI Calculator page with proper SEO optimization.\n\n1. Set the page title to:\nFree EMI Calculator Online – Home & Personal Loan EMI India\n\n2. Add this meta description:\nCalculate home loan, car loan and personal loan EMI instantly with our free EMI calculator online in India. Fast and accurate results.\n\nDo not change the design or tool functionality.\nOnly update SEO content."
+          "Set the page title to:\nFree Age Calculator Online – Calculate Exact Age by Date of Birth",
+          "Add this meta description:\nUse our free age calculator to calculate your exact age by date of birth. Get accurate age in years, months, and days instantly online."
         ]
       },
       "acceptanceCriteria": [
-        "When navigating to /emi-calculator, the browser tab title equals \"Free EMI Calculator Online – Home & Personal Loan EMI India\".",
-        "When navigating to /emi-calculator, <meta name=\"description\"> content equals \"Calculate home loan, car loan and personal loan EMI instantly with our free EMI calculator online in India. Fast and accurate results.\".",
-        "No other routes’ titles/descriptions change."
+        "In frontend/src/utils/seo.ts, the TOOL_SEO entry for '/age-calculator' sets title to exactly: \"Free Age Calculator Online – Calculate Exact Age by Date of Birth\".",
+        "In frontend/src/utils/seo.ts, the TOOL_SEO entry for '/age-calculator' sets description to exactly: \"Use our free age calculator to calculate your exact age by date of birth. Get accurate age in years, months, and days instantly online.\".",
+        "Navigating to the Age Calculator page results in document.title and the meta[name=\"description\"] content reflecting the updated values."
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Update the EMI Calculator page on-page SEO content so the H1 remains exactly \"Free EMI Calculator Online\" and add the following introduction paragraph above the EMI tool UI: \"Our free EMI calculator helps you calculate home loan EMI, car loan EMI, and personal loan EMI instantly. This online EMI calculator is simple, fast, and accurate for Indian users.\".",
+      "text": "Update the Age Calculator page on-screen SEO content so the H1 remains \"Free Age Calculator Online\" and the provided SEO introduction paragraph appears above the tool inputs/actions, without changing the tool behavior or layout structure.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "3. Keep the H1 as:\nFree EMI Calculator Online\n\n4. Add this SEO introduction paragraph at the top of the page above the tool:\n\nOur free EMI calculator helps you calculate home loan EMI, car loan EMI, and personal loan EMI instantly. This online EMI calculator is simple, fast, and accurate for Indian users.\n\nDo not change the design or tool functionality.\nOnly update SEO content."
+          "Keep the H1 as:\nFree Age Calculator Online",
+          "Add this SEO introduction paragraph at the top of the page above the tool:\n\nOur free age calculator helps you calculate your exact age by date of birth. This online age calculator provides accurate results in years, months, and days instantly.\n\nDo not change the design or tool functionality.\nOnly update SEO content."
         ]
       },
       "acceptanceCriteria": [
-        "On /emi-calculator, the page’s primary heading (ToolShell title / H1 equivalent) renders exactly \"Free EMI Calculator Online\".",
-        "The provided intro paragraph renders above the calculator inputs/actions within the EMI page content flow.",
-        "Calculator inputs, calculation behavior, and result rendering remain unchanged."
+        "In frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx, the ToolShell title is exactly: \"Free Age Calculator Online\" (this is the page H1).",
+        "In frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx, the text shown directly under the H1 and above the inputs matches exactly: \"Our free age calculator helps you calculate your exact age by date of birth. This online age calculator provides accurate results in years, months, and days instantly.\"",
+        "No changes are made to the calculation logic, input fields, validation behavior, button behavior, or result rendering (only SEO copy is updated)."
       ]
     }
   ],
   "constraints": [
-    "Do not change the EMI calculator’s design, layout styling, or functionality; only update SEO-related text and metadata.",
-    "Do not modify any files under frontend/src/components/ui (read-only components must be composed, not edited)."
+    "Do not change the Age Calculator design/layout beyond updating the specified SEO text.",
+    "Do not change the Age Calculator tool functionality or calculation logic.",
+    "Frontend immutable paths must not be edited (frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui)."
   ],
   "nonGoals": [
-    "Adding new SEO features (e.g., Open Graph tags, JSON-LD schema) beyond the title and meta description requested.",
-    "Changing sitemap.xml or robots.txt.",
-    "Updating SEO content for any other tool/page besides /emi-calculator."
+    "Adding new pages, routes, or restructuring navigation.",
+    "Implementing additional SEO features (e.g., Open Graph tags, JSON-LD, canonical URLs) beyond the requested title/meta description/on-page intro copy.",
+    "Backend changes (Motoko) or persistence changes."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
-  },
-  "userProfileUpdate": {
-    "goalsToAdd": [],
-    "goalsToRemove": [],
-    "preferencesToAdd": [],
-    "preferencesToRemove": [],
-    "miscToAdd": [],
-    "miscToRemove": [],
-    "fieldsToSet": {},
-    "fieldsToDelete": []
   }
 }

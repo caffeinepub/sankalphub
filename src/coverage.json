@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-15T05:06:24.883Z",
+  "generatedAt": "2026-02-16T06:56:52.992Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -12,7 +12,7 @@
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Update the EMI Calculator page SEO metadata for the /emi-calculator route so the document title is exactly \"Free EMI Calculator Online – Home & Personal Loan EMI India\" and the meta description is exactly \"Calculate home loan, car loan and personal loan EMI instantly with our free EMI calculator online in India. Fast and accurate results.\".",
+        "summary": "Update the Age Calculator route SEO metadata so that the browser page title and meta description match the provided SEO copy for the /age-calculator page.",
         "status": "implemented",
         "plannedFiles": [
           "frontend/src/utils/seo.ts"
@@ -23,13 +23,13 @@
       },
       {
         "id": "REQ-2",
-        "summary": "Update the EMI Calculator page on-page SEO content so the H1 remains exactly \"Free EMI Calculator Online\" and add the following introduction paragraph above the EMI tool UI: \"Our free EMI calculator helps you calculate home loan EMI, car loan EMI, and personal loan EMI instantly. This online EMI calculator is simple, fast, and accurate for Indian users.\".",
+        "summary": "Update the Age Calculator page on-screen SEO content so the H1 remains \"Free Age Calculator Online\" and the provided SEO introduction paragraph appears above the tool inputs/actions, without changing the tool behavior or layout structure.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/tools/calculators/EmiCalculatorPage.tsx"
+          "frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/tools/calculators/EmiCalculatorPage.tsx"
+          "frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx"
         ]
       }
     ]
@@ -39,7 +39,7 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/pages/tools/calculators/EmiCalculatorPage.tsx",
+    "frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx",
     "frontend/src/utils/seo.ts",
     "project_state.json",
     "scratch/component-selection.json",

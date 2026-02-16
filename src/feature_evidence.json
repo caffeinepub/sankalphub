@@ -2,8 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-emi-calculator-page-seo-metadata-for-the-emi-calculator-route-so-the-document-title-is-exactly-free-emi-calculator-online-home-personal-loan-emi-india-and-the-meta-description-is-exactly-calculate-home-loan-car-loan-and-personal-loan-emi-instantly-with-our-free-emi-calculator-online-in-india-fast-and-accurate-results",
-      "featureTitle": "Update the EMI Calculator page SEO metadata for the /emi-calculator route so the document title is exactly \"Free EMI Calculator Online – Home & Personal Loan EMI India\" and the meta description is exactly \"Calculate home loan, car loan and personal loan EMI instantly with our free EMI calculator online in India. Fast and accurate results.\".",
+      "featureId": "feature-update-the-age-calculator-route-seo-metadata-so-that-the-browser-page-title-and-meta-description-match-the-provided-seo-copy-for-the-age-calculator-page",
+      "featureTitle": "Update the Age Calculator route SEO metadata so that the browser page title and meta description match the provided SEO copy for the /age-calculator page.",
       "files": [
         "frontend/src/utils/seo.ts"
       ],
@@ -20,10 +20,10 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-update-the-emi-calculator-page-on-page-seo-content-so-the-h1-remains-exactly-free-emi-calculator-online-and-add-the-following-introduction-paragraph-above-the-emi-tool-ui-our-free-emi-calculator-helps-you-calculate-home-loan-emi-car-loan-emi-and-personal-loan-emi-instantly-this-online-emi-calculator-is-simple-fast-and-accurate-for-indian-users",
-      "featureTitle": "Update the EMI Calculator page on-page SEO content so the H1 remains exactly \"Free EMI Calculator Online\" and add the following introduction paragraph above the EMI tool UI: \"Our free EMI calculator helps you calculate home loan EMI, car loan EMI, and personal loan EMI instantly. This online EMI calculator is simple, fast, and accurate for Indian users.\".",
+      "featureId": "feature-update-the-age-calculator-page-on-screen-seo-content-so-the-h1-remains-free-age-calculator-online-and-the-provided-seo-introduction-paragraph-appears-above-the-tool-inputs-actions-without-changing-the-tool-behavior-or-layout-structure",
+      "featureTitle": "Update the Age Calculator page on-screen SEO content so the H1 remains \"Free Age Calculator Online\" and the provided SEO introduction paragraph appears above the tool inputs/actions, without changing the tool behavior or layout structure.",
       "files": [
-        "frontend/src/pages/tools/calculators/EmiCalculatorPage.tsx"
+        "frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",

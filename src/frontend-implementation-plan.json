@@ -1,37 +1,37 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "EMI Calculator SEO metadata and intro content updates",
+  "title": "Age Calculator SEO copy updates (metadata + on-page intro)",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Update /emi-calculator document title and meta description to the exact requested SEO strings without affecting other routes.",
+      "summary": "Update /age-calculator SEO metadata (document title + meta description) to match provided SEO copy.",
       "acceptanceCriteria": [
-        "When navigating to /emi-calculator, the browser tab title equals \"Free EMI Calculator Online – Home & Personal Loan EMI India\".",
-        "When navigating to /emi-calculator, <meta name=\"description\"> content equals \"Calculate home loan, car loan and personal loan EMI instantly with our free EMI calculator online in India. Fast and accurate results.\".",
-        "No other routes’ titles/descriptions change."
+        "In frontend/src/utils/seo.ts, the TOOL_SEO entry for '/age-calculator' sets title to exactly: \"Free Age Calculator Online – Calculate Exact Age by Date of Birth\".",
+        "In frontend/src/utils/seo.ts, the TOOL_SEO entry for '/age-calculator' sets description to exactly: \"Use our free age calculator to calculate your exact age by date of birth. Get accurate age in years, months, and days instantly online.\".",
+        "Navigating to the Age Calculator page results in document.title and the meta[name=\"description\"] content reflecting the updated values."
       ],
       "file_operations": [
         {
           "path": "frontend/src/utils/seo.ts",
           "operation": "modify",
-          "description": "Update the TOOL_SEO entry for '/emi-calculator' so applyToolSEO sets the document title and meta description to the exact required strings; do not change other route mappings."
+          "description": "Update the TOOL_SEO entry for '/age-calculator' to use the provided exact title and meta description strings so applyToolSEO('/age-calculator') sets the correct document.title and meta description."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Keep the EMI Calculator H1 exactly as requested and add the specified intro paragraph above the EMI tool UI without changing design or behavior.",
+      "summary": "Update Age Calculator on-page SEO copy: keep H1 as specified and add the provided intro paragraph above inputs without changing tool behavior/layout structure.",
       "acceptanceCriteria": [
-        "On /emi-calculator, the page’s primary heading (ToolShell title / H1 equivalent) renders exactly \"Free EMI Calculator Online\".",
-        "The provided intro paragraph renders above the calculator inputs/actions within the EMI page content flow.",
-        "Calculator inputs, calculation behavior, and result rendering remain unchanged."
+        "In frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx, the ToolShell title is exactly: \"Free Age Calculator Online\" (this is the page H1).",
+        "In frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx, the text shown directly under the H1 and above the inputs matches exactly: \"Our free age calculator helps you calculate your exact age by date of birth. This online age calculator provides accurate results in years, months, and days instantly.\"",
+        "No changes are made to the calculation logic, input fields, validation behavior, button behavior, or result rendering (only SEO copy is updated)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/tools/calculators/EmiCalculatorPage.tsx",
+          "path": "frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx",
           "operation": "modify",
-          "description": "Update the ToolShell title to exactly \"Free EMI Calculator Online\" and ensure the intro paragraph text is rendered above the calculator UI (use the ToolShell description area so placement stays above the input/action section); do not alter calculation logic, inputs, or result rendering."
+          "description": "Update only the ToolShell props for SEO copy: set title to exactly \"Free Age Calculator Online\" and set description to exactly the provided introduction paragraph (so it appears directly under the H1 and above the inputs). Do not alter any calculator logic, handlers, inputs, or result rendering."
         }
       ]
     }

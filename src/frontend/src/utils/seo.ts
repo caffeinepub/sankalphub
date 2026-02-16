@@ -14,8 +14,8 @@ const TOOL_SEO: Record<string, { title: string; description: string }> = {
     description: 'Calculate home loan, car loan and personal loan EMI instantly with our free EMI calculator online in India. Fast and accurate results.',
   },
   '/age-calculator': {
-    title: 'Age Calculator – Calculate Your Age in Seconds',
-    description: 'Use this free Age Calculator to find your exact age in years, months, and days. Instant, accurate results with a clean and mobile-friendly interface.',
+    title: 'Free Age Calculator Online – Calculate Exact Age by Date of Birth',
+    description: 'Use our free age calculator to calculate your exact age by date of birth. Get accurate age in years, months, and days instantly online.',
   },
   '/sip-calculator': {
     title: 'SIP Calculator – Estimate Mutual Fund Returns Online',

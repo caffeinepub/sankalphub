@@ -36,8 +36,8 @@ export function AgeCalculatorPage() {
   return (
     <>
       <ToolShell
-        title="Age Calculator"
-        description="Calculate your exact age in years, months, and days. The Age Calculator is a simple and accurate tool that instantly calculates your age. Just select your date of birth and get a detailed breakdown within seconds. This tool is helpful for school forms, official documents, job applications, and personal curiosity."
+        title="Free Age Calculator Online"
+        description="Our free age calculator helps you calculate your exact age by date of birth. This online age calculator provides accurate results in years, months, and days instantly."
         actionButton={{
           label: 'Calculate Age',
           onClick: handleCalculate,
