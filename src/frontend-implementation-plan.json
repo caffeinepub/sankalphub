@@ -1,37 +1,116 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Age Calculator SEO copy updates (metadata + on-page intro)",
+  "title": "SEO-only optimization for tool pages (excluding EMI & Loan)",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Update /age-calculator SEO metadata (document title + meta description) to match provided SEO copy.",
+      "summary": "Add unique route-level SEO titles/descriptions for all specified tool routes (excluding EMI & Loan) and ensure they are applied per route.",
       "acceptanceCriteria": [
-        "In frontend/src/utils/seo.ts, the TOOL_SEO entry for '/age-calculator' sets title to exactly: \"Free Age Calculator Online – Calculate Exact Age by Date of Birth\".",
-        "In frontend/src/utils/seo.ts, the TOOL_SEO entry for '/age-calculator' sets description to exactly: \"Use our free age calculator to calculate your exact age by date of birth. Get accurate age in years, months, and days instantly online.\".",
-        "Navigating to the Age Calculator page results in document.title and the meta[name=\"description\"] content reflecting the updated values."
+        "In frontend/src/utils/seo.ts, TOOL_SEO contains entries for all of these paths: /age-calculator, /tools/bmi-calculator, /sip-calculator, /tools/gst-calculator, /tools/percentage-calculator, /jpg-to-pdf, /tools/png-to-jpg, /tools/jpg-to-png, /tools/pdf-merge, /tools/pdf-split, /tools/compress-pdf, /tools/pdf-to-image, /image-compressor, /tools/image-converter, /tools/image-resizer.",
+        "For each of the above paths, the title string starts with \"Free\" and is <= 60 characters.",
+        "For each of the above paths, the description string is between 150 and 160 characters inclusive (counting spaces) and includes the tool’s main keyword (e.g., \"BMI calculator\", \"SIP calculator\", \"merge PDF\").",
+        "No two titles are identical across the updated tool pages, and no two meta descriptions are identical across the updated tool pages.",
+        "Entries for /emi-calculator and /tools/loan-calculator are not changed from their current values."
       ],
       "file_operations": [
         {
           "path": "frontend/src/utils/seo.ts",
           "operation": "modify",
-          "description": "Update the TOOL_SEO entry for '/age-calculator' to use the provided exact title and meta description strings so applyToolSEO('/age-calculator') sets the correct document.title and meta description."
+          "description": "Update TOOL_SEO to include entries for every specified tool route path with unique titles (start with \"Free\", <= 60 chars) and unique meta descriptions (150–160 chars inclusive) that include the main keyword; do not change existing TOOL_SEO values for /emi-calculator and /tools/loan-calculator."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Update the route wrapper components for the specified tool routes to call applyToolSEO() with the exact matching path (instead of restoreDefaultSEO where currently used), so each specified tool route applies its TOOL_SEO metadata at navigation time; do not alter the EMI Calculator or Loan Calculator wrapper behavior."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Update Age Calculator on-page SEO copy: keep H1 as specified and add the provided intro paragraph above inputs without changing tool behavior/layout structure.",
+      "summary": "Update on-screen SEO copy only (H1 + 3–4 line intro above each tool) for all specified tool pages while preserving layout, styling, URLs, and functionality; exclude EMI & Loan pages.",
       "acceptanceCriteria": [
-        "In frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx, the ToolShell title is exactly: \"Free Age Calculator Online\" (this is the page H1).",
-        "In frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx, the text shown directly under the H1 and above the inputs matches exactly: \"Our free age calculator helps you calculate your exact age by date of birth. This online age calculator provides accurate results in years, months, and days instantly.\"",
-        "No changes are made to the calculation logic, input fields, validation behavior, button behavior, or result rendering (only SEO copy is updated)."
+        "The following files are updated only in user-facing SEO text (titles/headings/intro paragraphs), with no functional logic changes: frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx, BmiCalculatorPage.tsx, SipCalculatorPage.tsx, GstCalculatorPage.tsx, PercentageCalculatorPage.tsx; frontend/src/pages/tools/pdf/JpgToPdfPage.tsx, PdfMergePage.tsx, PdfSplitPage.tsx, CompressPdfPage.tsx, PdfToImagePage.tsx; frontend/src/pages/tools/image/JpgToPngPage.tsx, PngToJpgPage.tsx, ImageCompressorPage.tsx, ImageConverterPage.tsx, ImageResizerPage.tsx.",
+        "Each of the specified pages displays a keyword-focused H1 that matches the tool topic (e.g., \"Free BMI Calculator\", \"Free Merge PDF Tool\"), and it is not replaced with unrelated wording.",
+        "Each of the specified pages includes a new or revised 3–4 line introduction paragraph above the tool UI that describes the tool and naturally includes the main keyword for that page.",
+        "No changes are made to routes/URLs, component structure that would alter layout, styling classes, or tool processing behavior; only textual SEO content is changed.",
+        "No changes are made to frontend/src/pages/tools/calculators/EmiCalculatorPage.tsx or frontend/src/pages/tools/calculators/LoanCalculatorPage.tsx."
       ],
       "file_operations": [
         {
           "path": "frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx",
           "operation": "modify",
-          "description": "Update only the ToolShell props for SEO copy: set title to exactly \"Free Age Calculator Online\" and set description to exactly the provided introduction paragraph (so it appears directly under the H1 and above the inputs). Do not alter any calculator logic, handlers, inputs, or result rendering."
+          "description": "Update only the user-visible SEO copy so the H1 remains keyword-focused (e.g., \"Free Age Calculator\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"age calculator\"; do not change layout, styling classes, routes, or calculation behavior."
+        },
+        {
+          "path": "frontend/src/pages/tools/calculators/BmiCalculatorPage.tsx",
+          "operation": "modify",
+          "description": "Update only the user-visible SEO copy so the H1 is keyword-focused (e.g., \"Free BMI Calculator\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"BMI calculator\"; do not change layout, styling classes, routes, or calculation behavior."
+        },
+        {
+          "path": "frontend/src/pages/tools/calculators/SipCalculatorPage.tsx",
+          "operation": "modify",
+          "description": "Update only the user-visible SEO copy so the H1 is keyword-focused (e.g., \"Free SIP Calculator\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"SIP calculator\"; do not change layout, styling classes, routes, or calculation behavior."
+        },
+        {
+          "path": "frontend/src/pages/tools/calculators/GstCalculatorPage.tsx",
+          "operation": "modify",
+          "description": "Update only the user-visible SEO copy so the H1 is keyword-focused (e.g., \"Free GST Calculator\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"GST calculator\"; do not change layout, styling classes, routes, or calculation behavior."
+        },
+        {
+          "path": "frontend/src/pages/tools/calculators/PercentageCalculatorPage.tsx",
+          "operation": "modify",
+          "description": "Update only the user-visible SEO copy so the H1 is keyword-focused (e.g., \"Free Percentage Calculator\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"percentage calculator\"; do not change layout, styling classes, routes, or calculation behavior."
+        },
+        {
+          "path": "frontend/src/pages/tools/pdf/JpgToPdfPage.tsx",
+          "operation": "modify",
+          "description": "Update only the user-visible SEO copy so the H1 is keyword-focused (e.g., \"Free JPG to PDF Converter\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"JPG to PDF\"; do not change layout, styling classes, routes, or PDF conversion behavior."
+        },
+        {
+          "path": "frontend/src/pages/tools/pdf/PdfMergePage.tsx",
+          "operation": "modify",
+          "description": "Update only the user-visible SEO copy so the H1 is keyword-focused (e.g., \"Free Merge PDF Tool\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"merge PDF\"; do not change layout, styling classes, routes, or merge behavior."
+        },
+        {
+          "path": "frontend/src/pages/tools/pdf/PdfSplitPage.tsx",
+          "operation": "modify",
+          "description": "Update only the user-visible SEO copy so the H1 is keyword-focused (e.g., \"Free Split PDF Tool\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"split PDF\"; do not change layout, styling classes, routes, or split behavior."
+        },
+        {
+          "path": "frontend/src/pages/tools/pdf/CompressPdfPage.tsx",
+          "operation": "modify",
+          "description": "Update only the user-visible SEO copy so the existing H1 becomes keyword-focused (e.g., \"Free Compress PDF Tool\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"compress PDF\"; do not change layout, styling classes, routes, or compression behavior."
+        },
+        {
+          "path": "frontend/src/pages/tools/pdf/PdfToImagePage.tsx",
+          "operation": "modify",
+          "description": "Update only the user-visible SEO copy so the existing H1 becomes keyword-focused (e.g., \"Free PDF to Image Converter\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"PDF to image\"; do not change layout, styling classes, routes, or conversion behavior."
+        },
+        {
+          "path": "frontend/src/pages/tools/image/JpgToPngPage.tsx",
+          "operation": "modify",
+          "description": "Update only the user-visible SEO copy so the H1 is keyword-focused (e.g., \"Free JPG to PNG Converter\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"JPG to PNG\"; do not change layout, styling classes, routes, or conversion behavior."
+        },
+        {
+          "path": "frontend/src/pages/tools/image/PngToJpgPage.tsx",
+          "operation": "modify",
+          "description": "Update only the user-visible SEO copy so the existing H1 becomes keyword-focused (e.g., \"Free PNG to JPG Converter\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"PNG to JPG\"; do not change layout, styling classes, routes, or conversion behavior."
+        },
+        {
+          "path": "frontend/src/pages/tools/image/ImageCompressorPage.tsx",
+          "operation": "modify",
+          "description": "Update only the user-visible SEO copy so the H1 is keyword-focused (e.g., \"Free Image Compressor\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"image compressor\"; do not change layout, styling classes, routes, or compression behavior."
+        },
+        {
+          "path": "frontend/src/pages/tools/image/ImageConverterPage.tsx",
+          "operation": "modify",
+          "description": "Update only the user-visible SEO copy so the existing H1 becomes keyword-focused (e.g., \"Free Image Converter\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"image converter\"; do not change layout, styling classes, routes, or conversion behavior."
+        },
+        {
+          "path": "frontend/src/pages/tools/image/ImageResizerPage.tsx",
+          "operation": "modify",
+          "description": "Update only the user-visible SEO copy so the H1 is keyword-focused (e.g., \"Free Image Resizer\") and add/adjust a professional 3–4 line introduction paragraph above the tool UI that naturally includes the main keyword \"image resizer\"; do not change layout, styling classes, routes, or resize behavior."
         }
       ]
     }

@@ -227,28 +227,28 @@ function TermsComponent() {
 
 function PdfMergeComponent() {
   useEffect(() => {
-    restoreDefaultSEO();
+    applyToolSEO('/tools/pdf-merge');
   }, []);
   return <PdfMergePage />;
 }
 
 function PdfSplitComponent() {
   useEffect(() => {
-    restoreDefaultSEO();
+    applyToolSEO('/tools/pdf-split');
   }, []);
   return <PdfSplitPage />;
 }
 
 function CompressPdfComponent() {
   useEffect(() => {
-    restoreDefaultSEO();
+    applyToolSEO('/tools/compress-pdf');
   }, []);
   return <CompressPdfPage />;
 }
 
 function PdfToImageComponent() {
   useEffect(() => {
-    restoreDefaultSEO();
+    applyToolSEO('/tools/pdf-to-image');
   }, []);
   return <PdfToImagePage />;
 }
@@ -269,28 +269,28 @@ function ImageCompressorComponent() {
 
 function ImageResizerComponent() {
   useEffect(() => {
-    restoreDefaultSEO();
+    applyToolSEO('/tools/image-resizer');
   }, []);
   return <ImageResizerPage />;
 }
 
 function JpgToPngComponent() {
   useEffect(() => {
-    restoreDefaultSEO();
+    applyToolSEO('/tools/jpg-to-png');
   }, []);
   return <JpgToPngPage />;
 }
 
 function PngToJpgComponent() {
   useEffect(() => {
-    restoreDefaultSEO();
+    applyToolSEO('/tools/png-to-jpg');
   }, []);
   return <PngToJpgPage />;
 }
 
 function ImageConverterComponent() {
   useEffect(() => {
-    restoreDefaultSEO();
+    applyToolSEO('/tools/image-converter');
   }, []);
   return <ImageConverterPage />;
 }
@@ -304,7 +304,7 @@ function EmiCalculatorComponent() {
 
 function LoanCalculatorComponent() {
   useEffect(() => {
-    restoreDefaultSEO();
+    applyToolSEO('/tools/loan-calculator');
   }, []);
   return <LoanCalculatorPage />;
 }
@@ -318,21 +318,21 @@ function AgeCalculatorComponent() {
 
 function BmiCalculatorComponent() {
   useEffect(() => {
-    restoreDefaultSEO();
+    applyToolSEO('/tools/bmi-calculator');
   }, []);
   return <BmiCalculatorPage />;
 }
 
 function GstCalculatorComponent() {
   useEffect(() => {
-    restoreDefaultSEO();
+    applyToolSEO('/tools/gst-calculator');
   }, []);
   return <GstCalculatorPage />;
 }
 
 function PercentageCalculatorComponent() {
   useEffect(() => {
-    restoreDefaultSEO();
+    applyToolSEO('/tools/percentage-calculator');
   }, []);
   return <PercentageCalculatorPage />;
 }
@@ -404,7 +404,7 @@ const termsRoute = createRoute({
   component: TermsComponent,
 });
 
-// PDF Tool Routes
+// PDF Tools Routes
 const pdfMergeRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/tools/pdf-merge',
@@ -435,7 +435,7 @@ const imageToPdfRoute = createRoute({
   component: ImageToPdfComponent,
 });
 
-// Image Tool Routes
+// Image Tools Routes
 const imageCompressorRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/image-compressor',
@@ -509,7 +509,7 @@ const sipCalculatorRoute = createRoute({
   component: SipCalculatorComponent,
 });
 
-// Not Found Route
+// 404 Route
 const notFoundRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '*',
@@ -550,15 +550,6 @@ const routeTree = rootRoute.addChildren([
 // Create router
 const router = createRouter({ routeTree });
 
-// Type declaration for router
-declare module '@tanstack/react-router' {
-  interface Register {
-    router: typeof router;
-  }
-}
-
-function App() {
+export default function App() {
   return <RouterProvider router={router} />;
 }
-
-export default App;

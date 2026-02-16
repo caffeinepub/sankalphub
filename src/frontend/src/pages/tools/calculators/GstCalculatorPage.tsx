@@ -33,8 +33,8 @@ export function GstCalculatorPage() {
 
   return (
     <ToolShell
-      title="GST Calculator"
-      description="Calculate GST amount and total with add or remove mode"
+      title="Free GST Calculator"
+      description="Calculate GST amount instantly with our free GST calculator for India. Add or remove GST from any amount with accurate results. This GST calculator supports all GST rates (5%, 12%, 18%, 28%) and helps businesses and individuals calculate GST quickly for invoicing, pricing, and tax compliance."
       actionButton={{
         label: 'Calculate GST',
         onClick: handleCalculate,

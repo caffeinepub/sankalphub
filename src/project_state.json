@@ -1,22 +1,26 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "New project",
-  "architectural_notes": [],
+  "summary": "SEO optimization pass for tool pages (excluding already-optimized EMI Calculator and Loan Calculator), adding unique titles, meta descriptions, H1 alignment, and intro copy without changing URLs/design/functionality.",
+  "architectural_notes": [
+    "SEO updates must not change URLs, design/layout, or tool functionality.",
+    "Do not modify EMI Calculator or Loan Calculator pages during SEO optimization.",
+    "Each tool page must have a unique title and unique meta description; titles must start with 'Free' and be ≤60 characters; meta descriptions must be 150–160 characters."
+  ],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-update-the-age-calculator-route-seo-metadata-so-that-the-browser-page-title-and-meta-description-match-the-provided-seo-copy-for-the-age-calculator-page",
-      "title": "Update the Age Calculator route SEO metadata so that the browser page title and meta description match the provided SEO copy for the /age-calculator page.",
+      "id": "feature-update-route-level-seo-metadata-for-every-specified-tool-route-age-calculator-bmi-calculator-sip-calculator-gst-calculator-percentage-calculator-jpg-to-pdf-png-to-jpg-jpg-to-png-merge-pdf-split-pdf-compress-pdf-pdf-to-image-image-compressor-image-converter-resize-image-so-that-each-route-has-a-unique-seo-friendly-document-title-max-60-characters-that-starts-with-free-and-naturally-includes-the-main-keyword-and-a-unique-meta-description-that-is-150-160-characters-and-includes-the-main-keyword-do-not-change-seo-metadata-for-the-emi-calculator-route-or-the-loan-calculator-route",
+      "title": "Update route-level SEO metadata for every specified tool route (Age Calculator, BMI Calculator, SIP Calculator, GST Calculator, Percentage Calculator, JPG to PDF, PNG to JPG, JPG to PNG, Merge PDF, Split PDF, Compress PDF, PDF to Image, Image Compressor, Image Converter, Resize Image) so that each route has a unique SEO-friendly document title (max 60 characters) that starts with \"Free\" and naturally includes the main keyword, and a unique meta description that is 150–160 characters and includes the main keyword. Do not change SEO metadata for the EMI Calculator route or the Loan Calculator route.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-update-the-age-calculator-page-on-screen-seo-content-so-the-h1-remains-free-age-calculator-online-and-the-provided-seo-introduction-paragraph-appears-above-the-tool-inputs-actions-without-changing-the-tool-behavior-or-layout-structure",
-      "title": "Update the Age Calculator page on-screen SEO content so the H1 remains \"Free Age Calculator Online\" and the provided SEO introduction paragraph appears above the tool inputs/actions, without changing the tool behavior or layout structure.",
+      "id": "feature-for-each-specified-tool-page-component-age-calculator-bmi-calculator-sip-calculator-gst-calculator-percentage-calculator-jpg-to-pdf-png-to-jpg-jpg-to-png-merge-pdf-split-pdf-compress-pdf-pdf-to-image-image-compressor-image-converter-resize-image-update-only-on-screen-seo-copy-so-that-a-the-h1-remains-keyword-focused-and-matches-the-page-topic-and-b-a-professional-3-4-line-seo-introduction-paragraph-appears-above-each-tool-explaining-what-it-does-and-naturally-including-the-main-keyword-do-not-change-any-url-design-layout-or-tool-functionality-do-not-modify-emi-calculator-or-loan-calculator-pages",
+      "title": "For each specified tool page component (Age Calculator, BMI Calculator, SIP Calculator, GST Calculator, Percentage Calculator, JPG to PDF, PNG to JPG, JPG to PNG, Merge PDF, Split PDF, Compress PDF, PDF to Image, Image Compressor, Image Converter, Resize Image), update only on-screen SEO copy so that (a) the H1 remains keyword-focused and matches the page topic, and (b) a professional 3–4 line SEO introduction paragraph appears above each tool explaining what it does and naturally including the main keyword. Do not change any URL, design, layout, or tool functionality. Do not modify EMI Calculator or Loan Calculator pages.",
       "reqIds": [
         "REQ-2"
       ],
@@ -26,12 +30,12 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Update Age Calculator page SEO content (page title, meta description, keep H1, add intro paragraph above tool) without changing design or functionality",
+      "summary": "Apply SEO optimization to all specified tool pages (exclude EMI Calculator & Loan Calculator): unique 'Free…' titles (≤60 chars), unique 150–160 char meta descriptions, keyword-focused H1, and 3–4 line intro paragraph; no URL/design/layout/functionality changes.",
       "reqIds": [],
       "status": "pending"
     }
   ],
-  "projectName": "Update Age Calculator page SEO (title, meta description, H1, intro paragraph)",
+  "projectName": "SEO-only optimization for all tool pages (exclude EMI & Loan calculators)",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

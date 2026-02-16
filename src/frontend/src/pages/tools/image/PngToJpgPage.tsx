@@ -46,8 +46,10 @@ export function PngToJpgPage() {
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       <div className="text-center">
-        <h1 className="text-3xl md:text-4xl font-bold mb-2">PNG to JPG</h1>
-        <p className="text-muted-foreground">Convert PNG images to JPG format</p>
+        <h1 className="text-3xl md:text-4xl font-bold mb-2">Free PNG to JPG Converter</h1>
+        <p className="text-muted-foreground max-w-2xl mx-auto">
+          Convert PNG images to JPG format instantly with our free PNG to JPG converter. Transform PNG files to JPEG for smaller file sizes and better compatibility. This PNG to JPG tool is perfect for reducing image file sizes, optimizing images for web use, and ensuring compatibility across all platforms and devices.
+        </p>
       </div>
 
       <Card>

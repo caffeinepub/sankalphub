@@ -49,8 +49,10 @@ export function ImageConverterPage() {
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       <div className="text-center">
-        <h1 className="text-3xl md:text-4xl font-bold mb-2">Image Converter</h1>
-        <p className="text-muted-foreground">Convert images between different formats</p>
+        <h1 className="text-3xl md:text-4xl font-bold mb-2">Free Image Converter</h1>
+        <p className="text-muted-foreground max-w-2xl mx-auto">
+          Convert images between formats instantly with our free image converter. Support for JPEG, PNG, WebP and more formats. This image converter tool makes it easy to transform images for web optimization, compatibility, or specific project requirements with just a few clicks.
+        </p>
       </div>
 
       <Card>

@@ -46,8 +46,10 @@ export function PdfToImagePage() {
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       <div className="text-center">
-        <h1 className="text-3xl md:text-4xl font-bold mb-2">PDF to Image</h1>
-        <p className="text-muted-foreground">Convert PDF pages to image files</p>
+        <h1 className="text-3xl md:text-4xl font-bold mb-2">Free PDF to Image Converter</h1>
+        <p className="text-muted-foreground max-w-2xl mx-auto">
+          Convert PDF pages to images instantly with our free PDF to image converter. Extract all pages from your PDF document as high-quality JPG or PNG images. This PDF to image tool is perfect for creating thumbnails, sharing specific pages, or converting documents for presentations and web use.
+        </p>
       </div>
 
       <Alert>

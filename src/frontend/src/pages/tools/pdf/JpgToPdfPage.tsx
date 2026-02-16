@@ -49,8 +49,8 @@ export function JpgToPdfPage() {
   return (
     <>
       <ToolShell
-        title="JPG to PDF Converter"
-        description="Convert one or more JPG/JPEG images into a single PDF document. The JPG to PDF Converter allows you to convert images into a clean, high-quality PDF file instantly. This tool is perfect for creating documents, sharing images professionally, or preparing files for printing and submissions. Upload your JPG images, arrange them as needed, and generate a PDF with one click."
+        title="Free JPG to PDF Converter"
+        description="Convert JPG images to PDF instantly with our free JPG to PDF converter. Upload one or multiple JPG/JPEG images and combine them into a single high-quality PDF document. This JPG to PDF tool is perfect for creating documents, sharing images professionally, or preparing files for printing and submissions."
         actionButton={{
           label: 'Convert to PDF',
           onClick: handleConvert,

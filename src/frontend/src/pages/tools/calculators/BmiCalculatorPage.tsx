@@ -32,8 +32,8 @@ export function BmiCalculatorPage() {
 
   return (
     <ToolShell
-      title="BMI Calculator"
-      description="Calculate your Body Mass Index and health category"
+      title="Free BMI Calculator"
+      description="Calculate your Body Mass Index instantly with our free BMI calculator. Enter your height and weight to get your BMI value and health category. This BMI calculator helps you understand your body composition and provides accurate results based on standard BMI ranges for adults."
       actionButton={{
         label: 'Calculate BMI',
         onClick: handleCalculate,

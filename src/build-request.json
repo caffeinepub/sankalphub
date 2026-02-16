@@ -1,59 +1,79 @@
 {
   "kind": "build_request",
-  "title": "Update Age Calculator page SEO (title, meta description, H1, intro paragraph)",
+  "title": "SEO-only optimization for all tool pages (exclude EMI & Loan calculators)",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update the Age Calculator route SEO metadata so that the browser page title and meta description match the provided SEO copy for the /age-calculator page.",
+      "text": "Update route-level SEO metadata for every specified tool route (Age Calculator, BMI Calculator, SIP Calculator, GST Calculator, Percentage Calculator, JPG to PDF, PNG to JPG, JPG to PNG, Merge PDF, Split PDF, Compress PDF, PDF to Image, Image Compressor, Image Converter, Resize Image) so that each route has a unique SEO-friendly document title (max 60 characters) that starts with \"Free\" and naturally includes the main keyword, and a unique meta description that is 150–160 characters and includes the main keyword. Do not change SEO metadata for the EMI Calculator route or the Loan Calculator route.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-6"
         ],
         "quotes": [
-          "Set the page title to:\nFree Age Calculator Online – Calculate Exact Age by Date of Birth",
-          "Add this meta description:\nUse our free age calculator to calculate your exact age by date of birth. Get accurate age in years, months, and days instantly online."
+          "Apply SEO optimization to ALL tool pages except EMI Calculator and Loan Calculator (these are already optimized).",
+          "Create a unique SEO-friendly title (max 60 characters) starting with \"Free\" and including the main keyword naturally.",
+          "Add a unique 150-160 character meta description including the main keyword.",
+          "Ensure each page has a DIFFERENT title and DIFFERENT meta description.",
+          "Do NOT modify EMI Calculator or Loan Calculator pages."
         ]
       },
       "acceptanceCriteria": [
-        "In frontend/src/utils/seo.ts, the TOOL_SEO entry for '/age-calculator' sets title to exactly: \"Free Age Calculator Online – Calculate Exact Age by Date of Birth\".",
-        "In frontend/src/utils/seo.ts, the TOOL_SEO entry for '/age-calculator' sets description to exactly: \"Use our free age calculator to calculate your exact age by date of birth. Get accurate age in years, months, and days instantly online.\".",
-        "Navigating to the Age Calculator page results in document.title and the meta[name=\"description\"] content reflecting the updated values."
+        "In frontend/src/utils/seo.ts, TOOL_SEO contains entries for all of these paths: /age-calculator, /tools/bmi-calculator, /sip-calculator, /tools/gst-calculator, /tools/percentage-calculator, /jpg-to-pdf, /tools/png-to-jpg, /tools/jpg-to-png, /tools/pdf-merge, /tools/pdf-split, /tools/compress-pdf, /tools/pdf-to-image, /image-compressor, /tools/image-converter, /tools/image-resizer.",
+        "For each of the above paths, the title string starts with \"Free\" and is <= 60 characters.",
+        "For each of the above paths, the description string is between 150 and 160 characters inclusive (counting spaces) and includes the tool’s main keyword (e.g., \"BMI calculator\", \"SIP calculator\", \"merge PDF\").",
+        "No two titles are identical across the updated tool pages, and no two meta descriptions are identical across the updated tool pages.",
+        "Entries for /emi-calculator and /tools/loan-calculator are not changed from their current values."
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Update the Age Calculator page on-screen SEO content so the H1 remains \"Free Age Calculator Online\" and the provided SEO introduction paragraph appears above the tool inputs/actions, without changing the tool behavior or layout structure.",
+      "text": "For each specified tool page component (Age Calculator, BMI Calculator, SIP Calculator, GST Calculator, Percentage Calculator, JPG to PDF, PNG to JPG, JPG to PNG, Merge PDF, Split PDF, Compress PDF, PDF to Image, Image Compressor, Image Converter, Resize Image), update only on-screen SEO copy so that (a) the H1 remains keyword-focused and matches the page topic, and (b) a professional 3–4 line SEO introduction paragraph appears above each tool explaining what it does and naturally including the main keyword. Do not change any URL, design, layout, or tool functionality. Do not modify EMI Calculator or Loan Calculator pages.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-6"
         ],
         "quotes": [
-          "Keep the H1 as:\nFree Age Calculator Online",
-          "Add this SEO introduction paragraph at the top of the page above the tool:\n\nOur free age calculator helps you calculate your exact age by date of birth. This online age calculator provides accurate results in years, months, and days instantly.\n\nDo not change the design or tool functionality.\nOnly update SEO content."
+          "Keep the H1 keyword-focused and matching the page topic.",
+          "Add a 3-4 line SEO introduction paragraph above each tool explaining what it does and including the main keyword naturally.",
+          "Do NOT change any URL, design, layout, or tool functionality.",
+          "Do NOT modify EMI Calculator or Loan Calculator pages.",
+          "Only update SEO content."
         ]
       },
       "acceptanceCriteria": [
-        "In frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx, the ToolShell title is exactly: \"Free Age Calculator Online\" (this is the page H1).",
-        "In frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx, the text shown directly under the H1 and above the inputs matches exactly: \"Our free age calculator helps you calculate your exact age by date of birth. This online age calculator provides accurate results in years, months, and days instantly.\"",
-        "No changes are made to the calculation logic, input fields, validation behavior, button behavior, or result rendering (only SEO copy is updated)."
+        "The following files are updated only in user-facing SEO text (titles/headings/intro paragraphs), with no functional logic changes: frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx, BmiCalculatorPage.tsx, SipCalculatorPage.tsx, GstCalculatorPage.tsx, PercentageCalculatorPage.tsx; frontend/src/pages/tools/pdf/JpgToPdfPage.tsx, PdfMergePage.tsx, PdfSplitPage.tsx, CompressPdfPage.tsx, PdfToImagePage.tsx; frontend/src/pages/tools/image/JpgToPngPage.tsx, PngToJpgPage.tsx, ImageCompressorPage.tsx, ImageConverterPage.tsx, ImageResizerPage.tsx.",
+        "Each of the specified pages displays a keyword-focused H1 that matches the tool topic (e.g., \"Free BMI Calculator\", \"Free Merge PDF Tool\"), and it is not replaced with unrelated wording.",
+        "Each of the specified pages includes a new or revised 3–4 line introduction paragraph above the tool UI that describes the tool and naturally includes the main keyword for that page.",
+        "No changes are made to routes/URLs, component structure that would alter layout, styling classes, or tool processing behavior; only textual SEO content is changed.",
+        "No changes are made to frontend/src/pages/tools/calculators/EmiCalculatorPage.tsx or frontend/src/pages/tools/calculators/LoanCalculatorPage.tsx."
       ]
     }
   ],
   "constraints": [
-    "Do not change the Age Calculator design/layout beyond updating the specified SEO text.",
-    "Do not change the Age Calculator tool functionality or calculation logic.",
-    "Frontend immutable paths must not be edited (frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui)."
+    "Do not change any URL/route constants or route paths.",
+    "Do not change design, layout, styling, or tool functionality; update SEO text only.",
+    "Do not modify EMI Calculator or Loan Calculator pages (including on-screen copy) and do not change their existing SEO metadata entries."
   ],
   "nonGoals": [
-    "Adding new pages, routes, or restructuring navigation.",
-    "Implementing additional SEO features (e.g., Open Graph tags, JSON-LD, canonical URLs) beyond the requested title/meta description/on-page intro copy.",
-    "Backend changes (Motoko) or persistence changes."
+    "Adding new pages, new tools, or changing tool categories/navigation.",
+    "Changing sitemap.xml or robots.txt behavior beyond what is required for SEO copy updates.",
+    "Implementing structured data (JSON-LD), OpenGraph/Twitter tags, or server-side rendering."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }

@@ -36,8 +36,8 @@ export function SipCalculatorPage() {
   return (
     <>
       <ToolShell
-        title="SIP Calculator"
-        description="Calculate your Systematic Investment Plan returns. The SIP Calculator helps you estimate the future value of your mutual fund investments based on your monthly contribution, expected return rate, and investment duration. Systematic Investment Plans make it easier to grow wealth steadily, and this calculator gives you clear insights into potential returns."
+        title="Free SIP Calculator"
+        description="Calculate your Systematic Investment Plan returns with our free SIP calculator. Estimate the future value of your mutual fund investments based on monthly contributions, expected return rate, and investment duration. This SIP calculator helps you plan your financial goals and understand the power of compounding in long-term wealth creation."
         actionButton={{
           label: 'Calculate Returns',
           onClick: handleCalculate,

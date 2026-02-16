@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-16T06:56:52.992Z",
+  "generatedAt": "2026-02-16T07:52:03.456Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -12,24 +12,53 @@
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Update the Age Calculator route SEO metadata so that the browser page title and meta description match the provided SEO copy for the /age-calculator page.",
+        "summary": "Update route-level SEO metadata for every specified tool route (Age Calculator, BMI Calculator, SIP Calculator, GST Calculator, Percentage Calculator, JPG to PDF, PNG to JPG, JPG to PNG, Merge PDF, Split PDF, Compress PDF, PDF to Image, Image Compressor, Image Converter, Resize Image) so that each route has a unique SEO-friendly document title (max 60 characters) that starts with \"Free\" and naturally includes the main keyword, and a unique meta description that is 150–160 characters and includes the main keyword. Do not change SEO metadata for the EMI Calculator route or the Loan Calculator route.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/utils/seo.ts"
+          "frontend/src/utils/seo.ts",
+          "frontend/src/App.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/utils/seo.ts"
+          "frontend/src/utils/seo.ts",
+          "frontend/src/App.tsx"
         ]
       },
       {
         "id": "REQ-2",
-        "summary": "Update the Age Calculator page on-screen SEO content so the H1 remains \"Free Age Calculator Online\" and the provided SEO introduction paragraph appears above the tool inputs/actions, without changing the tool behavior or layout structure.",
+        "summary": "For each specified tool page component (Age Calculator, BMI Calculator, SIP Calculator, GST Calculator, Percentage Calculator, JPG to PDF, PNG to JPG, JPG to PNG, Merge PDF, Split PDF, Compress PDF, PDF to Image, Image Compressor, Image Converter, Resize Image), update only on-screen SEO copy so that (a) the H1 remains keyword-focused and matches the page topic, and (b) a professional 3–4 line SEO introduction paragraph appears above each tool explaining what it does and naturally including the main keyword. Do not change any URL, design, layout, or tool functionality. Do not modify EMI Calculator or Loan Calculator pages.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx"
+          "frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx",
+          "frontend/src/pages/tools/calculators/BmiCalculatorPage.tsx",
+          "frontend/src/pages/tools/calculators/SipCalculatorPage.tsx",
+          "frontend/src/pages/tools/calculators/GstCalculatorPage.tsx",
+          "frontend/src/pages/tools/calculators/PercentageCalculatorPage.tsx",
+          "frontend/src/pages/tools/pdf/JpgToPdfPage.tsx",
+          "frontend/src/pages/tools/pdf/PdfMergePage.tsx",
+          "frontend/src/pages/tools/pdf/PdfSplitPage.tsx",
+          "frontend/src/pages/tools/pdf/CompressPdfPage.tsx",
+          "frontend/src/pages/tools/pdf/PdfToImagePage.tsx",
+          "frontend/src/pages/tools/image/JpgToPngPage.tsx",
+          "frontend/src/pages/tools/image/PngToJpgPage.tsx",
+          "frontend/src/pages/tools/image/ImageCompressorPage.tsx",
+          "frontend/src/pages/tools/image/ImageConverterPage.tsx",
+          "frontend/src/pages/tools/image/ImageResizerPage.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx"
+          "frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx",
+          "frontend/src/pages/tools/calculators/BmiCalculatorPage.tsx",
+          "frontend/src/pages/tools/calculators/SipCalculatorPage.tsx",
+          "frontend/src/pages/tools/calculators/GstCalculatorPage.tsx",
+          "frontend/src/pages/tools/calculators/PercentageCalculatorPage.tsx",
+          "frontend/src/pages/tools/pdf/JpgToPdfPage.tsx",
+          "frontend/src/pages/tools/pdf/PdfMergePage.tsx",
+          "frontend/src/pages/tools/pdf/PdfSplitPage.tsx",
+          "frontend/src/pages/tools/pdf/CompressPdfPage.tsx",
+          "frontend/src/pages/tools/pdf/PdfToImagePage.tsx",
+          "frontend/src/pages/tools/image/JpgToPngPage.tsx",
+          "frontend/src/pages/tools/image/PngToJpgPage.tsx",
+          "frontend/src/pages/tools/image/ImageConverterPage.tsx",
+          "frontend/src/pages/tools/image/ImageResizerPage.tsx"
         ]
       }
     ]
@@ -39,7 +68,21 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
+    "frontend/src/App.tsx",
     "frontend/src/pages/tools/calculators/AgeCalculatorPage.tsx",
+    "frontend/src/pages/tools/calculators/BmiCalculatorPage.tsx",
+    "frontend/src/pages/tools/calculators/GstCalculatorPage.tsx",
+    "frontend/src/pages/tools/calculators/PercentageCalculatorPage.tsx",
+    "frontend/src/pages/tools/calculators/SipCalculatorPage.tsx",
+    "frontend/src/pages/tools/image/ImageConverterPage.tsx",
+    "frontend/src/pages/tools/image/ImageResizerPage.tsx",
+    "frontend/src/pages/tools/image/JpgToPngPage.tsx",
+    "frontend/src/pages/tools/image/PngToJpgPage.tsx",
+    "frontend/src/pages/tools/pdf/CompressPdfPage.tsx",
+    "frontend/src/pages/tools/pdf/JpgToPdfPage.tsx",
+    "frontend/src/pages/tools/pdf/PdfMergePage.tsx",
+    "frontend/src/pages/tools/pdf/PdfSplitPage.tsx",
+    "frontend/src/pages/tools/pdf/PdfToImagePage.tsx",
     "frontend/src/utils/seo.ts",
     "project_state.json",
     "scratch/component-selection.json",

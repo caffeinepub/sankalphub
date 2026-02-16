@@ -50,8 +50,8 @@ export function JpgToPngPage() {
 
   return (
     <ToolShell
-      title="JPG to PNG Converter"
-      description="Convert JPG/JPEG images to PNG format"
+      title="Free JPG to PNG Converter"
+      description="Convert JPG images to PNG format instantly with our free JPG to PNG converter. Transform JPEG files to PNG with transparency support and lossless quality. This JPG to PNG tool is perfect for web graphics, logos, and images that require transparent backgrounds or higher quality preservation."
       actionButton={{
         label: 'Convert to PNG',
         onClick: handleConvert,

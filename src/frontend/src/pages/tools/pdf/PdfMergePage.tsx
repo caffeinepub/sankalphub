@@ -46,62 +46,71 @@ export function PdfMergePage() {
   };
 
   return (
-    <ToolShell
-      title="PDF Merge"
-      description="Combine multiple PDF files into a single document"
-      actionButton={{
-        label: 'Merge PDFs',
-        onClick: handleMerge,
-        disabled: files.length < 2,
-      }}
-      isLoading={isLoading}
-      loadingText="Merging PDF files..."
-      result={
-        result || error
-          ? {
-              content: error ? (
-                <p className="text-destructive">{error}</p>
-              ) : (
-                <div className="space-y-3">
-                  <Alert>
-                    <Info className="h-4 w-4" />
-                    <AlertDescription>
-                      Demo mode: This creates a placeholder file. Full PDF processing requires pdf-lib library.
-                    </AlertDescription>
-                  </Alert>
-                  <p className="text-foreground">{result?.summary}</p>
-                  <p className="text-sm text-muted-foreground">
-                    Your merged PDF is ready to download
-                  </p>
-                </div>
-              ),
-            }
-          : undefined
-      }
-      download={
-        result
-          ? {
-              onClick: handleDownload,
-              label: 'Download Merged PDF',
-            }
-          : undefined
-      }
-    >
-      <div className="space-y-2">
-        <Label htmlFor="pdfs">Select PDF Files (2 or more)</Label>
-        <Input
-          id="pdfs"
-          type="file"
-          accept="application/pdf"
-          multiple
-          onChange={handleFileChange}
-        />
-        {files.length > 0 && (
-          <p className="text-sm text-muted-foreground">
-            {files.length} PDF{files.length > 1 ? 's' : ''} selected
-          </p>
-        )}
+    <div className="max-w-4xl mx-auto space-y-8">
+      <div className="text-center mb-6">
+        <h1 className="text-3xl md:text-4xl font-bold mb-3">Free Merge PDF Tool</h1>
+        <p className="text-muted-foreground max-w-2xl mx-auto">
+          Merge multiple PDF files into one document instantly with our free merge PDF tool. Combine PDF files in any order to create a single, organized document. This merge PDF tool is perfect for combining reports, contracts, invoices, or any PDF documents quickly and securely online.
+        </p>
       </div>
-    </ToolShell>
+      
+      <ToolShell
+        title=""
+        description=""
+        actionButton={{
+          label: 'Merge PDFs',
+          onClick: handleMerge,
+          disabled: files.length < 2,
+        }}
+        isLoading={isLoading}
+        loadingText="Merging PDF files..."
+        result={
+          result || error
+            ? {
+                content: error ? (
+                  <p className="text-destructive">{error}</p>
+                ) : (
+                  <div className="space-y-3">
+                    <Alert>
+                      <Info className="h-4 w-4" />
+                      <AlertDescription>
+                        Demo mode: This creates a placeholder file. Full PDF processing requires pdf-lib library.
+                      </AlertDescription>
+                    </Alert>
+                    <p className="text-foreground">{result?.summary}</p>
+                    <p className="text-sm text-muted-foreground">
+                      Your merged PDF is ready to download
+                    </p>
+                  </div>
+                ),
+              }
+            : undefined
+        }
+        download={
+          result
+            ? {
+                onClick: handleDownload,
+                label: 'Download Merged PDF',
+              }
+            : undefined
+        }
+      >
+        <div className="space-y-2">
+          <Label htmlFor="pdfs">Select PDF Files (2 or more)</Label>
+          <Input
+            id="pdfs"
+            type="file"
+            accept="application/pdf"
+            multiple
+            onChange={handleFileChange}
+          />
+          {files.length > 0 && (
+            <p className="text-sm text-muted-foreground">
+              {files.length} PDF{files.length > 1 ? 's' : ''} selected
+            </p>
+          )}
+        </div>
+      </ToolShell>
+    </div>
   );
 }

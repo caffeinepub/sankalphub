@@ -46,8 +46,10 @@ export function CompressPdfPage() {
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       <div className="text-center">
-        <h1 className="text-3xl md:text-4xl font-bold mb-2">Compress PDF</h1>
-        <p className="text-muted-foreground">Reduce PDF file size while maintaining quality</p>
+        <h1 className="text-3xl md:text-4xl font-bold mb-2">Free Compress PDF Tool</h1>
+        <p className="text-muted-foreground max-w-2xl mx-auto">
+          Compress PDF files and reduce file size instantly with our free compress PDF tool. Reduce PDF file size while maintaining quality for easier sharing, faster uploads, and storage savings. This compress PDF tool optimizes your documents without compromising readability or visual quality.
+        </p>
       </div>
 
       <Alert>
